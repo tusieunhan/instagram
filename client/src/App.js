@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Auth from './components/Auth/Auth';
+import Home from './components/Home/Home';
+import Error from './components/Error/Error';
+import Header from './components/Header/Header';
+import './style/basic.scss';
 
 function App() {
+  const user = false;
+  // const user = useSelector((state) => state.user.user.username);
+  const url = window.location.pathname;
+  let navigate = useNavigate();
+  useEffect(() => {
+    function auth() {
+      if (!user) {
+        return navigate("/login");
+      } else {
+        if (url === "/login") {
+          return navigate("/");
+        }
+        return navigate(url);
+      }
+    };
+    auth();
+  }, [user, url]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {user && <Header />}
+      {user
+        ? (<Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:err" element={<Error />} />
+        </Routes>)
+        : <Auth />}
     </div>
   );
 }
