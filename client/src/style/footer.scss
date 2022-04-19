@@ -1,0 +1,16 @@
+@import "./var.scss";
+.footer {
+  position: fixed;
+  bottom: 0px;
+  margin-bottom: 50px;
+  width: 50%;
+  &-text {
+    color: $colorhover;
+    font-size: 12px;
+    align-items: center;
+    text-align: center;
+  }
+  &-bottom {
+    margin-top: 20px;
+  }
+}
