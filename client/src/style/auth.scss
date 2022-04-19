@@ -63,18 +63,21 @@
     }
   }
   &-facebook {
+    background-color: $colorbox;
+    border: none;
     color: #03218e;
-    gap: 10px;
-    & p {
-      color: #021e82;
-      cursor: pointer;
-    }
+    cursor: pointer;
+    align-items: center;
   }
   &-forgot {
     text-align: center;
     margin: 20px 0;
     color: #00376b;
     font-size: 12px;
+  }
+  &-social {
+      display : flex;
+      justify-content: center;
   }
 }
 .btn {
@@ -85,6 +88,7 @@
   color: $colorbox;
   padding: 8px;
   text-align: center;
+  cursor: pointer;
   &-login {
     margin-top: 10px;
   }

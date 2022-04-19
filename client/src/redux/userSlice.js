@@ -4,11 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
     name: "music",
     initialState: {
-        user: {
-            currentUser: [],
-            friends: [],
-            musicFav: [],
-        },
+        user: {}
     },
     reducers: {
         setUser: (state, action) => {
