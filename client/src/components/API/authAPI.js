@@ -5,7 +5,7 @@ export const registerUser = async (dispatch, user) => {
     try {
         const response = await axiosClient.post("/user/register", user);
         console.log(response)
-        dispatch(setUser(response.data.user));
+        dispatch(setUser(response.data));
     } catch (error) {
         console.error(error);
     }
