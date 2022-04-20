@@ -7,7 +7,7 @@ const Auth = () => {
   const [isAuth, setIsAuth] = useState(true);
 
   return (
-    <div className="auth flex-center">
+    <div className="auth">
       <div className="auth-box">
         <div className="auth-box-logo">
           <img
