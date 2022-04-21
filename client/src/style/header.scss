@@ -48,6 +48,18 @@
         font-size: $iconsize;
         color: $colortext;
       }
+      & .imgActive {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50px;
+        border: 1px solid $colortext;
+      }
+    }
+    &-img {
+      position: relative;
     }
     &-img img {
       width: 24px;
