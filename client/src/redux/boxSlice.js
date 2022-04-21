@@ -6,7 +6,8 @@ export const boxSlice = createSlice({
     boxPost: false,
     boxNoti: false,
     boxUser: false,
-    prevIndex: 0,
+    indexActive: 0,
+    tabFollow: false,
   },
   reducers: {
     setBoxPost: (state) => {
@@ -24,8 +25,16 @@ export const boxSlice = createSlice({
       state.boxNoti = false;
       state.boxPost = false;
     },
+    setIndexActive: (state, action) => {
+      state.indexActive = action.payload;
+    },
+    unAllBox: (state) => {
+      state.boxUser = false;
+      state.boxNoti = false;
+      state.boxPost = false;
+    },
   },
 });
 
-export const { setBoxPost, setBoxNoti, setBoxUser } = boxSlice.actions;
+export const { setBoxPost, setBoxNoti, setBoxUser, unAllBox, setIndexActive } = boxSlice.actions;
 export default boxSlice.reducer;

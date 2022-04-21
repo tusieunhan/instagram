@@ -21,6 +21,7 @@
       align-items: stretch;
       width: 95%;
       position: relative;
+      z-index: 3;
       & input {
         padding-left: 20px;
         width: 100%;
@@ -29,6 +30,10 @@
         border: none;
         background-color: $colorinput;
         padding: 3px 40px;
+        &:focus ~  .btn-times{
+          display: block;
+          cursor: pointer;
+        }
         &:focus ~ .btn-search {
           display: none;
         }
@@ -73,4 +78,84 @@
   font-size: 16px;
   left: 20px;
   color: $colorhover;
+}
+.btn-times{
+  position: absolute;
+  font-size: 14px;
+  right: 15px;
+  color: $colorsub;
+  display: none;
+}
+.dialog{
+  &-noti{
+    z-index: 4;
+    overflow: scroll;
+    top: 58px;
+    width: 500px;
+    height: 362px;
+    border-radius: 3px;
+    background-color: $colorbox;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: absolute;
+  }
+  &-time{
+    text-align: left;
+    margin: 16px 0 0 12px;
+    color: $colortext;
+    font-weight: 500;
+  }
+  &-notipost{
+    &-btn{
+      cursor: pointer;
+      height: 68px;
+      align-items: center;
+      padding: 0 16px;
+    }
+    &-btn img{
+      width: 44px;
+      height: 44px;
+      border-radius: 100px;
+      overflow: hidden;
+      object-fit: cover;
+    }
+    &-item-text{
+      text-align: left;
+    }
+    &-item-btn{
+      position: absolute;
+      right: 10px;
+      & i:nth-child(2){
+        color: $colorhover;
+        font-size: 18px;
+        margin-bottom: 2px;
+      } 
+      & i:nth-child(1){
+        color: $colorlink;
+        font-size: 12px;
+        margin-top: 2px;
+
+      }
+      & img{
+        border-radius: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &-item{
+      &-name{
+        font-weight: 400;
+      }
+      &-noti{
+        font-weight: 300;
+        color: $colortext;
+      }
+      &-username{
+        color: $colorhover;
+        font-weight: 300;
+      }
+    }
+  }
+}
+.border-bottom{
+  border-bottom: 1px solid $colorborder;
 }

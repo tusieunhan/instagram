@@ -1,0 +1,26 @@
+@import "./var.scss";
+
+.dialog{
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    align-items: center;
+    justify-content:center;
+    cursor: pointer;
+    &-body{
+        background-color: $colorbox;
+        position: relative;
+        width: 500px;
+        height: 500px;
+    }
+    &-btn_times{
+        position: absolute;
+        top: 18px; 
+        right: 20px;
+        color: $colorbox;
+    }
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.8);
+}

@@ -5,9 +5,12 @@ import Home from "./components/Home/Home";
 import Error from "./components/Error/Error";
 import Header from "./components/Header/Header";
 import "./style/basic.scss";
+import Dialog from "./components/Dialog/Dialog";
+import { useSelector } from "react-redux";
 
 function App() {
   const user = true;
+  const box = useSelector((state) => state.box);
   // const user = useSelector((state) => state.user.user.username);
   const url = window.location.pathname;
   let navigate = useNavigate();
@@ -24,9 +27,11 @@ function App() {
     }
     auth();
   }, [user, url]);
-
   return (
     <div className="App">
+      {box.boxNoti && <Dialog />}
+      {box.boxUser && <Dialog />}
+      {box.boxPost && <Dialog overlay times />}
       {user && <Header />}
       {user ? (
         <Routes>

@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import "../../style/header.scss";
 import { Link } from "react-router-dom";
-import { setBoxNoti, setBoxPost, setBoxUser } from "../../redux/boxSlice";
+import { setBoxNoti, setBoxPost, setBoxUser,setIndexActive } from "../../redux/boxSlice";
 import { useDispatch, useSelector } from "react-redux";
+import DialogNoti from "../Dialog/DialogNoti";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const boxPost = useSelector((state) => state.box.boxPost);
-  const boxNoti = useSelector((state) => state.box.boxNoti);
-  const boxUser = useSelector((state) => state.box.boxUser);
-  const btnLink = document.querySelectorAll(".header-center-group .link i");
+  const box = useSelector((state) => state.box);
+  const [index,setIndex] = useState(box.indexActive);
 
+  const btnLink = document.querySelectorAll(".header-center-group .link i");
   btnLink.forEach((item, index) => {
     item.onclick = () => {
+      setIndex(index);
       document
         .querySelector(".fa-solid.fa-regular")
         .classList.remove("fa-solid");
@@ -20,14 +21,28 @@ const Header = () => {
     };
   });
 
+  let item = document.querySelector(".fa-solid.fa-regular")
+
   const handleClickBoxPost = () => {
     dispatch(setBoxPost());
+    dispatch(setIndexActive(index));
+    if(item){
+      item.classList.remove("fa-solid");
+    }
   };
   const handleClickBoxNoti = () => {
     dispatch(setBoxNoti());
+    dispatch(setIndexActive(index));
+    if(item){
+      item.classList.remove("fa-solid");
+    }
   };
   const handleClickBoxUSer = () => {
     dispatch(setBoxUser());
+    dispatch(setIndexActive(index));
+    if(item){
+      item.classList.remove("fa-solid");
+    }
   };
 
   return (
@@ -42,6 +57,7 @@ const Header = () => {
         <div className="header-center-search flex-center">
           <input type="text" placeholder="Search" />
           <i className="btn-search fa-regular fa-magnifying-glass"></i>
+          <i className="btn-times fa-solid fa-circle-x"></i>
         </div>
         <div className="header-center-group flex">
           <Link className="link" to="/">
@@ -52,7 +68,7 @@ const Header = () => {
           </Link>
           <i
             className={`fa-regular fa-square-plus ${
-              boxPost ? "fa-solid" : " "
+              box.boxPost ? "fa-solid" : " "
             }`}
             onClick={handleClickBoxPost}
           ></i>
@@ -60,15 +76,16 @@ const Header = () => {
             <i className="fa-regular fa-compass"></i>
           </Link>
           <i
-            className={`fa-regular fa-heart ${boxNoti ? "fa-solid" : " "}`}
+            className={`fa-regular fa-heart ${box.boxNoti ? "fa-solid" : " "}`}
             onClick={handleClickBoxNoti}
           ></i>
+          {box.boxNoti && <DialogNoti />}
           <div className="header-center-img" onClick={handleClickBoxUSer}>
             <img
               src="https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/240826453_2975993636023115_4454241435896868815_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_ohc=gCbv6kbpAQUAX_1Mzwz&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT-Tl_Oph2vRw4FcjP-OLNYpp3obPYLa1Ksydb4vtoFT1g&oe=6263F525"
               alt=""
             />
-            <div className={`imgBorder ${boxUser ? "imgActive" : " "}`}></div>
+            <div className={`imgBorder ${box.boxUser ? "imgActive" : " "}`}></div>
           </div>
         </div>
       </div>
