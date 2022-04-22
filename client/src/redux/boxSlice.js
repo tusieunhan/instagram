@@ -10,6 +10,9 @@ export const boxSlice = createSlice({
     tabFollow: false,
   },
   reducers: {
+    setTabFollow: (state) => {
+      state.tabFollow = true;
+    },
     setBoxPost: (state) => {
       state.boxPost = !state.boxPost;
       state.boxNoti = false;
@@ -32,9 +35,10 @@ export const boxSlice = createSlice({
       state.boxUser = false;
       state.boxNoti = false;
       state.boxPost = false;
+      state.tabFollow = false;
     },
   },
 });
 
-export const { setBoxPost, setBoxNoti, setBoxUser, unAllBox, setIndexActive } = boxSlice.actions;
+export const { setBoxPost, setTabFollow, setBoxNoti, setBoxUser, unAllBox, setIndexActive } = boxSlice.actions;
 export default boxSlice.reducer;

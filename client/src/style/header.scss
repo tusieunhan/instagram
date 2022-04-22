@@ -21,7 +21,7 @@
       align-items: stretch;
       width: 95%;
       position: relative;
-      z-index: 3;
+      // z-index: 3;
       & input {
         padding-left: 20px;
         width: 100%;
@@ -89,7 +89,7 @@
 .dialog{
   &-noti{
     z-index: 4;
-    overflow: scroll;
+    overflow-y: scroll;
     top: 58px;
     width: 500px;
     height: 362px;
@@ -152,6 +152,40 @@
       &-username{
         color: $colorhover;
         font-weight: 300;
+      }
+    }
+  }
+  &-upload{
+    background-color: $colorbox;
+    border-radius: 15px;
+    z-index: 4;
+    position: absolute;
+    top: 70px;
+    width: calc($contensize - 70%);
+    height: calc($contensize - 130px);
+    &-header{
+      text-align: center;
+      color: $colortext;
+      padding: 15px;
+      font-weight: 500;
+    }
+    &-body{
+      background-color: red;
+      align-items: center;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      & i{
+        font-size: 70px;
+      }
+      & p{
+        font-size: 20px;
+        font-weight: 200;
+      }
+      & input{
+        background-color: transparent;
       }
     }
   }

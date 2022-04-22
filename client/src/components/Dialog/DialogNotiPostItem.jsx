@@ -5,7 +5,7 @@ const DialogNotiPostItem = () => {
     <>
     <div className="dialog-notipost-btn gap-10 flex">
             <img src="https://reviewnao.com/wp-content/uploads/2021/11/hinh-anh-ma-cute-34.jpg" alt="" />
-            <div className="dialog-notipost-item-text flex gap-10">
+            <div className="dialog-notipost-item-text flex gap-5">
                 <p className="dialog-notipost-item-name">Follow Request</p>
                 <p className="dialog-notipost-item-noti"> liked your photo.</p>
                 <p className="dialog-notipost-item-time">1h</p>

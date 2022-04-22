@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { setBoxNoti, setBoxPost, setBoxUser,setIndexActive } from "../../redux/boxSlice";
 import { useDispatch, useSelector } from "react-redux";
 import DialogNoti from "../Dialog/DialogNoti";
+import DialogUpload from "../Dialog/DialogUpload";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,8 @@ const Header = () => {
           <input type="text" placeholder="Search" />
           <i className="btn-search fa-regular fa-magnifying-glass"></i>
           <i className="btn-times fa-solid fa-circle-x"></i>
+           {box.boxPost && <DialogUpload />}
+
         </div>
         <div className="header-center-group flex">
           <Link className="link" to="/">
