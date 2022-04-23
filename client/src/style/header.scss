@@ -162,7 +162,7 @@
     position: absolute;
     top: 70px;
     width: calc($contensize - 80%);
-    height: calc($contensize - 200px);
+    height: calc($contensize - 150px);
     overflow: hidden;
     transition: all 0.3s linear;
     &-img {
@@ -170,6 +170,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: relative;
+
     }
     &-header {
       text-align: center;
@@ -183,6 +185,7 @@
         color: $colorlink;
         font-weight: 500;
         font-size: 16px;
+        cursor: pointer;
       }
     }
     &-body {
@@ -212,13 +215,13 @@
   }
 }
 .btn-input {
-  color: calc($contensize - 200px);
   background-color: $colorlink;
   padding: 7px;
   width: 170px;
   text-align: center;
   margin: 0 auto;
   border-radius: 5px;
+  cursor: pointer;
   & p {
     color: $colorbox;
     font-size: 14px;
@@ -237,11 +240,40 @@
   position: absolute;
   top: 70px;
   width: calc($contensize + 130px);
-  height: calc($contensize - 200px);
+  height: calc($contensize - 150px);
   overflow: hidden;
-  &-img {
+  &-img{
     width: calc($contensize - 200px);
-    height: calc($contensize - 200px);
+    height: calc($contensize - 150px);
     object-fit: cover;
+    position: relative;
   }
+}
+.imgPreview{
+  position: relative;
+}
+.btn-prev,
+.btn-next{
+  top: 45%;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.686);
+  border-radius: 50px;
+  position: absolute;
+  z-index: 9999;
+  & i{
+    color: $colorbox;
+    padding: 8px 10px;
+  font-size: 16px;
+
+  }
+}
+.btn-next{
+  right: 10px;
+}
+.btn-prev{
+  left: 10px;
+}
+.d-none{
+  display: none;
 }
