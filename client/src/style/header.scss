@@ -161,21 +161,22 @@
     z-index: 4;
     position: absolute;
     top: 70px;
-    width: calc($contensize - 80%);
-    height: calc($contensize - 150px);
     overflow: hidden;
     transition: all 0.3s linear;
-    &-img {
+
+    &-preview-img {
+      width: 100%;
+      height: 100%;
       overflow: hidden;
+    }
+    &-preview-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: relative;
-
     }
     &-header {
       text-align: center;
-      padding: 10px;
+      padding: 10px 20px;
       & p:nth-child(2) {
         color: $colortext;
         font-weight: 500;
@@ -188,29 +189,40 @@
         cursor: pointer;
       }
     }
-    &-body {
-      width: 1000px;
-      margin-top: 50px;
+    &-group {
+      gap: 20px;
+      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      overflow: hidden;
-      & i {
+      width: 100%;
+      height: 100%;
+      &-icon i {
         font-size: 70px;
-        margin-bottom: 20px;
       }
-      & p {
+      &-title {
         font-size: 20px;
-        font-weight: 200;
-        margin-bottom: 20px;
         font-weight: 300;
       }
-      & input {
-        visibility: hidden;
-      }
+    }
+    &-body {
+      height: calc($contensize - 250px);
+      margin-top: 40px;
+      background-color: colorbox;
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    &-preview {
+      position: relative;
+      width: 730px;
+      height: 100%;
+      background-color: $colorbox;
+    }
+    &-edit {
+      display: none;
+      width: 340px;
+      background-color: red;
     }
   }
 }
@@ -232,48 +244,24 @@
 .border-bottom {
   border-bottom: 1px solid $colorborder;
 }
-.dialog-upload-edit {
-  transition: all 0.3s linear;
-  background-color: $colorbox;
-  border-radius: 15px;
-  z-index: 4;
-  position: absolute;
-  top: 70px;
-  width: calc($contensize + 130px);
-  height: calc($contensize - 150px);
-  overflow: hidden;
-  &-img{
-    width: calc($contensize - 200px);
-    height: calc($contensize - 150px);
-    object-fit: cover;
-    position: relative;
-  }
-}
-.imgPreview{
-  position: relative;
-}
 .btn-prev,
-.btn-next{
-  top: 45%;
-  width: 32px;
-  height: 32px;
-  background-color: rgba(0, 0, 0, 0.686);
-  border-radius: 50px;
+.btn-next {
   position: absolute;
-  z-index: 9999;
-  & i{
-    color: $colorbox;
-    padding: 8px 10px;
-  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.632);
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  top: 45%;
 
+  & i {
+    margin-top: 10px;
+    color: $colorbox;
+    font-size: 16px;
   }
 }
-.btn-next{
+.btn-next {
   right: 10px;
 }
-.btn-prev{
+.btn-prev {
   left: 10px;
-}
-.d-none{
-  display: none;
 }
