@@ -21,44 +21,42 @@ const DialogUpload = () => {
       }
     }
   };
-
-  console.log(avatar);
-  console.log(currentAvatar);
-
-  // const nextAvt = () => {
-  //   if (index === avatar.length - 1) {
-  //     document.querySelector(".btn-next").classList.add("d-none");
-  //     return;
-  //   } else {
-  //     document.querySelector(".btn-prev").classList.remove("d-none");
-  //   }
-  //   setIndex((i) => i + 1);
-  //   console.log(index);
-  //   setCurrentAvatar(avatar[index]);
-  // };
-  // const prevAvt = () => {
-  //   if (index === 0) {
-  //     document.querySelector(".btn-prev").classList.add("d-none");
-  //     return;
-  //   } else {
-  //     document.querySelector(".btn-next").classList.remove("d-none");
-  //   }
-  //   setIndex((i) => i - 1);
-  //   console.log(index);
-
-  //   setCurrentAvatar(avatar[index]);
-  // };
   const handleClickInputFile = () => {
     let inputClick = document.querySelector(".uploadfile");
     inputClick.click();
   };
+
+  console.log(avatar);
   return (
     <>
       <div className="dialog-upload">
         <div className="dialog-upload-header flex-between border-bottom">
-          {avatar ? <i class="fa-light fa-arrow-left"></i> : <p></p>}
+          {/* {avatar ? <i className="fa-light fa-arrow-left"></i> : <p></p>} */}
+          {avatar ? (
+            next ? (
+              <p onClick={() => setNext(false)}>
+                {" "}
+                <i className="fa-light fa-arrow-left"></i>{" "}
+              </p>
+            ) : (
+              <p onClick={() => console.log("true")}>
+                {" "}
+                <i className="fa-light fa-arrow-left"></i>{" "}
+              </p>
+            )
+          ) : (
+            <p></p>
+          )}
           <p>Create new post</p>
-          {avatar ? <p>Next</p> : <p></p>}
+          {avatar ? (
+            next ? (
+              <p onClick={() => console.log("true")}> Share</p>
+            ) : (
+              <p onClick={() => setNext(true)}>Next</p>
+            )
+          ) : (
+            <p></p>
+          )}
         </div>
         <div className="dialog-upload-body flex">
           {avatar === undefined ? (
@@ -89,23 +87,34 @@ const DialogUpload = () => {
             </div>
           ) : (
             <div className="dialog-upload-preview">
-              <div className="btn-next">
-                <i className="fa-light fa-chevron-right"></i>
-              </div>
-              <div className="btn-prev">
-                <i className="fa-light fa-chevron-left"></i>
-              </div>
+              {avatar?.length === 63 ? (
+                " "
+              ) : (
+                <>
+                  <div className="btn-next">
+                    <i className="fa-light fa-chevron-right"></i>
+                  </div>
+                  <div className="btn-prev">
+                    <i className="fa-light fa-chevron-left"></i>
+                  </div>
+                </>
+              )}
+
               <div className="dialog-upload-preview-img">
                 <img src={currentAvatar} alt="" />
               </div>
             </div>
           )}
-          <div className="dialog-upload-edit">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ea
-            labore praesentium unde obcaecati modi suscipit blanditiis, error
-            velit explicabo hic exercitationem provident porro repellendus earum
-            expedita asperiores, optio corrupti.
-          </div>
+          {next && (
+            <div className="dialog-upload-edit">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
+                similique sint, repellat adipisci soluta dolore nemo libero non
+                placeat ipsam tenetur distinctio iusto deleniti. Repudiandae
+                libero laborum ipsam adipisci ipsum!
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -156,6 +156,8 @@
     }
   }
   &-upload {
+    transition: all 0.3s linear;
+
     background-color: $colorbox;
     border-radius: 15px;
     z-index: 4;
@@ -185,7 +187,7 @@
       & p:nth-child(3) {
         color: $colorlink;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         cursor: pointer;
       }
     }
@@ -205,10 +207,10 @@
       }
     }
     &-body {
+      animation: all 0.3s linear;
       height: calc($contensize - 250px);
       margin-top: 40px;
       background-color: colorbox;
-      align-items: center;
       text-align: center;
       margin: 0 auto;
       overflow: hidden;
@@ -220,12 +222,23 @@
       background-color: $colorbox;
     }
     &-edit {
-      display: none;
+      text-align: left;
+      // display: none;
+      animation: eidtPost 0.3s linear;
       width: 340px;
       background-color: red;
     }
   }
 }
+@keyframes eidtPost {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 340px;
+  }
+}
+
 .btn-input {
   background-color: $colorlink;
   padding: 7px;
