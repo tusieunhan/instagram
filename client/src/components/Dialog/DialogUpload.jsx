@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const DialogUpload = () => {
+  const btnNextRef = useRef();
+  const btnPrevRef = useRef();
   const [avatar, setAvatar] = useState();
   const [currentAvatar, setCurrentAvatar] = useState();
   const [next, setNext] = useState(false);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
   const changeInputFile = (file) => {
     let url = file.target.files;
     if (url.length === 1) {
@@ -25,8 +27,40 @@ const DialogUpload = () => {
     let inputClick = document.querySelector(".uploadfile");
     inputClick.click();
   };
+  const btnNext = () => {
+    if (index === avatar.length - 1) return;
 
-  console.log(avatar);
+    setIndex((i) => {
+      setCurrentAvatar(avatar[i + 1]);
+      return i + 1;
+    });
+  };
+
+  useEffect(() => {
+    if (avatar?.length !== 63 && avatar?.length >= 1) {
+      console.log(index, avatar?.length - 1);
+      if (index === avatar?.length - 1) {
+        btnNextRef.current.style.display = "none";
+        btnPrevRef.current.style.display = "block";
+      } else {
+        btnPrevRef.current.style.display = "block";
+      }
+      if (index === 0) {
+        btnPrevRef.current.style.display = "none";
+        btnNextRef.current.style.display = "block";
+      }
+    }
+  }, [index, avatar?.length]);
+
+  const btnPrev = () => {
+    if (index === 0) return;
+
+    setIndex((i) => {
+      setCurrentAvatar(avatar[i - 1]);
+      return i - 1;
+    });
+  };
+
   return (
     <>
       <div className="dialog-upload">
@@ -50,7 +84,7 @@ const DialogUpload = () => {
           <p>Create new post</p>
           {avatar ? (
             next ? (
-              <p onClick={() => console.log("true")}> Share</p>
+              <p onClick={() => console.log("post")}> Share</p>
             ) : (
               <p onClick={() => setNext(true)}>Next</p>
             )
@@ -91,10 +125,10 @@ const DialogUpload = () => {
                 " "
               ) : (
                 <>
-                  <div className="btn-next">
+                  <div ref={btnNextRef} onClick={btnNext} className="btn-next">
                     <i className="fa-light fa-chevron-right"></i>
                   </div>
-                  <div className="btn-prev">
+                  <div ref={btnPrevRef} onClick={btnPrev} className="btn-prev">
                     <i className="fa-light fa-chevron-left"></i>
                   </div>
                 </>
