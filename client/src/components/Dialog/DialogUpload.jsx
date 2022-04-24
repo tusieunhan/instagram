@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setBoxConfirm } from "../../redux/boxSlice";
+import { setAvatar } from "../../redux/ceatePostSlice";
 
 const DialogUpload = () => {
   const btnNextRef = useRef();
   const btnPrevRef = useRef();
-  const [avatar, setAvatar] = useState();
+  const dispatch = useDispatch()
+  const avatar = useSelector(state => state.createPost.avatar)
   const [currentAvatar, setCurrentAvatar] = useState();
   const [next, setNext] = useState(false);
   const [index, setIndex] = useState(0);
@@ -11,14 +15,14 @@ const DialogUpload = () => {
     let url = file.target.files;
     if (url.length === 1) {
       let avt = URL.createObjectURL(url[0]);
-      setAvatar(avt);
+      dispatch(setAvatar(avt));
       setCurrentAvatar(avt);
     } else {
       let arr = [];
       for (let i = 0; i < url.length; i++) {
         let avt = URL.createObjectURL(url[i]);
         arr.push(avt);
-        setAvatar(arr);
+        dispatch(setAvatar(avt));
         setCurrentAvatar(arr[index]);
       }
     }
@@ -61,11 +65,15 @@ const DialogUpload = () => {
     });
   };
 
+  const handleExit = () =>{
+    if(avatar.length >= 0){
+      dispatch(setBoxConfirm())
+    }
+  }
   return (
     <>
       <div className="dialog-upload">
         <div className="dialog-upload-header flex-between border-bottom">
-          {/* {avatar ? <i className="fa-light fa-arrow-left"></i> : <p></p>} */}
           {avatar ? (
             next ? (
               <p onClick={() => setNext(false)}>
@@ -73,7 +81,7 @@ const DialogUpload = () => {
                 <i className="fa-light fa-arrow-left"></i>{" "}
               </p>
             ) : (
-              <p onClick={() => console.log("true")}>
+              <p onClick={handleExit}>
                 {" "}
                 <i className="fa-light fa-arrow-left"></i>{" "}
               </p>

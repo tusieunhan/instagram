@@ -1,0 +1,59 @@
+@import "./var.scss";
+
+.confirm{
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    text-align: center;
+
+    &-exitpost{
+        width: 400px;
+        height: 200px;
+        overflow: hidden;
+        &-title{
+            padding: 30px 0;
+            & p:nth-child(1){
+                font-weight: 500;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            & p:nth-child(2) {
+                content: $colorsub !important;
+                font-size: 12px;
+            }
+        }
+
+        &-discard{
+            &:active{
+                background-color: $colorborder;
+            }
+            & p{
+            cursor: pointer;
+            font-weight: 500;
+            color: rgb(255, 7, 90);
+            padding: 17px 0;
+            }
+        }
+        &-cancel{
+            border-radius: 0 0px 15px 15px ;
+            &:active{
+                background-color: $colorborder;
+
+            }
+        & p{
+            cursor: pointer;
+
+            padding: 17px 0;
+        }
+        }
+    }
+  }
+  .confirm-body{
+    z-index: 999;
+    position: absolute;
+    inset:0;
+  }

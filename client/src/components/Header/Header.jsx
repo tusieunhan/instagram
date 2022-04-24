@@ -5,7 +5,6 @@ import { setBoxNoti, setBoxPost, setBoxUser,setIndexActive } from "../../redux/b
 import { useDispatch, useSelector } from "react-redux";
 import DialogNoti from "../Dialog/DialogNoti";
 import DialogUpload from "../Dialog/DialogUpload";
-
 const Header = () => {
   const dispatch = useDispatch();
   const box = useSelector((state) => state.box);
@@ -60,7 +59,6 @@ const Header = () => {
           <i className="btn-search fa-regular fa-magnifying-glass"></i>
           <i className="btn-times fa-solid fa-circle-x"></i>
            {box.boxPost && <DialogUpload />}
-
         </div>
         <div className="header-center-group flex">
           <Link className="link" to="/">

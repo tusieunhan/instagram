@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import "./style/basic.scss";
 import Dialog from "./components/Dialog/Dialog";
 import { useSelector } from "react-redux";
+import Confirm from "./components/Dialog/Confirm";
 
 function App() {
   const user = true;
@@ -29,6 +30,7 @@ function App() {
   }, [user, url]);
   return (
     <div className="App">
+      {box.boxConfirm && <Confirm overlay />}
       {box.boxNoti && <Dialog />}
       {box.boxUser && <Dialog />}
       {box.boxPost && <Dialog overlay times />}

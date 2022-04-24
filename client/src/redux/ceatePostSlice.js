@@ -3,19 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 export const createPostSlice = createSlice({
     name: "box",
     initialState: {
-        index: 0,
-        currentAvatar: ""
+        avatar: undefined
     },
     reducers: {
-        setIndex: (state) => {
-            state.index = state.index + 1;
+        setAvatar: (state, action) => {
+            state.avatar = action.payload
         },
-        setCurrentAvatar: (state, action) => {
-            state.currentAvatar = action.payload
+        unAvatar: (state) => {
+            state.avatar = undefined
         }
 
     },
 });
 
-export const { setIndex, setCurrentAvatar } = createPostSlice.actions;
+export const { setAvatar, unAvatar } = createPostSlice.actions;
 export default createPostSlice.reducer;

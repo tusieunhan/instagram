@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const boxSlice = createSlice({
   name: "box",
   initialState: {
+    boxConfirm: false,
     boxPost: false,
     boxNoti: false,
     boxUser: false,
@@ -10,6 +11,9 @@ export const boxSlice = createSlice({
     tabFollow: false,
   },
   reducers: {
+    setBoxConfirm: (state) => {
+      state.boxConfirm = !state.boxConfirm;
+    },
     setTabFollow: (state) => {
       state.tabFollow = true;
     },
@@ -37,8 +41,11 @@ export const boxSlice = createSlice({
       state.boxPost = false;
       state.tabFollow = false;
     },
+    unConfirm: (state) => {
+      state.boxConfirm = false;
+    }
   },
 });
 
-export const { setBoxPost, setTabFollow, setBoxNoti, setBoxUser, unAllBox, setIndexActive } = boxSlice.actions;
+export const { setBoxPost, setTabFollow, setBoxNoti, setBoxUser, unAllBox, setIndexActive, setBoxConfirm, unConfirm } = boxSlice.actions;
 export default boxSlice.reducer;
