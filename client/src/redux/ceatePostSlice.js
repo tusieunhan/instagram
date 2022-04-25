@@ -7,6 +7,7 @@ export const createPostSlice = createSlice({
     contentPost: {
       text: undefined,
       inputfile: null,
+      location: ' '
     },
     next: false,
   },

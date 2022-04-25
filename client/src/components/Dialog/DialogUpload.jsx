@@ -8,7 +8,7 @@ import {
   unContentPost,
   unNext,
 } from "../../redux/ceatePostSlice";
-import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
+import DialogUploadEdit from "./DialogUploadEdit";
 
 const DialogUpload = () => {
   const btnNextRef = useRef();
@@ -18,12 +18,9 @@ const DialogUpload = () => {
   const contentPost = useSelector((state) => state.createPost.contentPost);
   const next = useSelector((state) => state.createPost.next);
   const [currentAvatar, setCurrentAvatar] = useState();
-  const [chosenEmoji, setChosenEmoji] = useState(false);
   const [index, setIndex] = useState(0);
-
-  console.log(avatar);
   const changeInputFile = (file) => {
-    dispatch(setContentPost({ ...contentPost, inputfile: file.target.value }));
+    dispatch(setContentPost({ ...contentPost, inputfile: file.target.className }));
     let url = file.target.files;
     if (url.length === 1) {
       let avt = URL.createObjectURL(url[0]);
@@ -84,20 +81,6 @@ const DialogUpload = () => {
     }
   };
 
-  const onEmojiClick = (event, emojiObject) => {
-    const { emoji } = emojiObject;
-    const { text } = contentPost;
-    dispatch(
-      setContentPost({
-        text: text + " " + emoji,
-        ...contentPost.inputfile,
-      })
-    );
-
-    if (event) setChosenEmoji(false);
-  };
-
-  console.log(next);
   return (
     <>
       <div className="dialog-upload">
@@ -161,10 +144,10 @@ const DialogUpload = () => {
                 " "
               ) : (
                 <>
-                  <div ref={btnNextRef} onClick={btnNext} className="btn-next">
+                  <div ref={btnNextRef} onClick={btnNext} className="btn-preview btn-next">
                     <i className="fa-light fa-chevron-right"></i>
                   </div>
-                  <div ref={btnPrevRef} onClick={btnPrev} className="btn-prev">
+                  <div ref={btnPrevRef} onClick={btnPrev} className="btn-preview btn-prev">
                     <i className="fa-light fa-chevron-left"></i>
                   </div>
                 </>
@@ -176,57 +159,7 @@ const DialogUpload = () => {
             </div>
           )}
           {next && (
-            <div className="dialog-upload-edit">
-              <div className="dialog-upload-edit-user ">
-                <div className="dialog-upload-edit-user_img flex">
-                  <img
-                    src="https://i0.wp.com/s3.anhdep24.net/images/2018/04/13/81067959240a9e1c7e0_2cddf81d5df70b4e98134e25b1e23cc6.jpg"
-                    alt=""
-                  />
-                  <div className="dialog-upload-edit-user_name">
-                    <p>Vantusieunhan</p>
-                  </div>
-                </div>
-                <div className="dialog-upload-edit-text">
-                  <textarea
-                    name="textedit"
-                    id=""
-                    cols="30"
-                    rows="10"
-                    placeholder="Write a caption ..."
-                    value={contentPost?.text}
-                    onChange={(e) =>
-                      dispatch(
-                        setContentPost({ ...contentPost, text: e.target.value })
-                      )
-                    }
-                  ></textarea>
-                </div>
-                <div className="dialog-upload-edit-sub flex-between">
-                  <div className="dialog-upload-edit-sub-emoji">
-                    <i
-                      onClick={() => setChosenEmoji(!chosenEmoji)}
-                      className="fa-light fa-face-smile"
-                    ></i>
-                    {chosenEmoji && (
-                      <div className="picker">
-                        <Picker
-                          disableSearchBar="no"
-                          onEmojiClick={onEmojiClick}
-                          disableAutoFocus={true}
-                          skinTone={SKIN_TONE_MEDIUM_DARK}
-                          groupNames={{ smileys_people: "PEOPLE" }}
-                          native
-                        />
-                      </div>
-                    )}
-                  </div>
-                  <div className="dialog-upload-edit-sub-count">
-                    <p>0/2,200</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <DialogUploadEdit />
           )}
         </div>
       </div>

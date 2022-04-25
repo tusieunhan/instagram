@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const userRoute = require("./Router/userRoute");
+const postRoute = require("./Router/postRoute");
 
 
 
@@ -39,3 +40,4 @@ mongoose
   });
 
 app.use("/user", userRoute);
+app.use("/post", postRoute);
