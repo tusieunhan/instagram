@@ -1,29 +1,33 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setBoxConfirm, unAllBox } from '../../redux/boxSlice'
-import "../../style/dialog.scss"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setBoxConfirm, unAllBox } from "../../redux/boxSlice";
 
-const Dialog = ({overlay,times}) => {
-const dispatch = useDispatch()
-const indexActive = useSelector((state) => state.box.indexActive);
-const avatar = useSelector(state => state.createPost.avatar)
+import "../../style/dialog.scss";
 
+const Dialog = ({ overlay, times }) => {
+  const dispatch = useDispatch();
+  const indexActive = useSelector((state) => state.box.indexActive);
+  const avatar = useSelector((state) => state.createPost.avatar);
 
-const btnLink = document.querySelectorAll(".header-center-group .link i");
+  const btnLink = document.querySelectorAll(".header-center-group .link i");
 
-const handleClickDialog=() => {
-    if(avatar?.length >= 1){
-      dispatch(setBoxConfirm())
-      return
+  const handleClickDialog = () => {
+    if (avatar?.length >= 1) {
+      dispatch(setBoxConfirm());
+      return;
     }
-    dispatch(unAllBox())
-    btnLink[indexActive].classList.add('fa-solid')
-}
-  return (
-    <div onClick={handleClickDialog} className={`dialog flex ${overlay ? 'overlay' : ''}`}>
-        {times && <i className="dialog-btn_times fa-solid fa-xmark-large"></i>}
-    </div>
-  )
-}
+    dispatch(unAllBox());
 
-export default Dialog
+    btnLink[indexActive].classList.add("fa-solid");
+  };
+  return (
+    <div
+      onClick={handleClickDialog}
+      className={`dialog flex ${overlay ? "overlay" : ""}`}
+    >
+      {times && <i className="dialog-btn_times fa-solid fa-xmark-large"></i>}
+    </div>
+  );
+};
+
+export default Dialog;

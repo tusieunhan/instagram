@@ -226,6 +226,52 @@
       // display: none;
       animation: eidtPost 0.3s linear;
       width: 340px;
+      &-user {
+        width: 90%;
+        padding: 15px 20px 5px 15px;
+        &_img {
+          margin-bottom: 10px;
+          & img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+          }
+        }
+        &_name {
+          text-align: bottom;
+          & p {
+            margin-top: 10px;
+            margin-left: 10px;
+            font-weight: 600;
+            align-items: center;
+          }
+        }
+      }
+      &-text textarea {
+        font-family: "Poppins";
+
+        border: none;
+        outline: none;
+        width: 100%;
+        resize: none;
+        height: 170px;
+        &::placeholder {
+          font-family: "Poppins";
+        }
+      }
+      &-sub {
+        position: relative;
+
+        color: $colorhover;
+        &-emoji i {
+          font-size: 20px;
+          cursor: pointer;
+        }
+        &-count p {
+          font-size: 12px;
+          color: $colorborder;
+        }
+      }
     }
   }
 }
@@ -276,4 +322,8 @@
 }
 .btn-prev {
   left: 10px;
+}
+.picker {
+  position: absolute;
+  left: 0;
 }
