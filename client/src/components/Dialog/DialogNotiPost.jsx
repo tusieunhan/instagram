@@ -11,6 +11,7 @@ const DialogNotiPost = () => {
         <DialogNotiPostItem/>
         <DialogNotiPostItem/>
         <DialogNotiPostItem/>
+        <DialogNotiPostItem/>
     </div>
   )
 }

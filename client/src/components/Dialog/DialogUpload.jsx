@@ -48,10 +48,8 @@ const DialogUpload = () => {
       return i + 1;
     });
   };
-
   useEffect(() => {
     if (avatar?.length !== 63 && avatar?.length >= 1) {
-      console.log(index, avatar?.length - 1);
       if (index === avatar?.length - 1) {
         btnNextRef.current.style.display = "none";
         btnPrevRef.current.style.display = "block";
@@ -103,7 +101,7 @@ const DialogUpload = () => {
           <p>Create new post</p>
           {avatar ? (
             next ? (
-              <p onClick={() => console.log("post")}> Share</p>
+              <p onClick={() => console.log(contentPost)}> Share</p>
             ) : (
               <p onClick={() => dispatch(setNext())}>Next</p>
             )

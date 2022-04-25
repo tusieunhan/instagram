@@ -6,8 +6,10 @@ import DialogNotiFollow from "./DialogNotiFollow";
 const DialogNoti = () => {
   const tabFollow = useSelector((state) => state.box.tabFollow);
   return (
-    <div className="dialog-noti">
-      {tabFollow ? <DialogNotiFollow /> : <DialogNotiPost />}
+    <div className="dialog-noti triangle">
+      <div className="dialog-noti2 ">
+        {tabFollow ? <DialogNotiFollow /> : <DialogNotiPost />}
+      </div>
     </div>
   );
 };

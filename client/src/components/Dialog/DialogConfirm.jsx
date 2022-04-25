@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { unAllBox, unConfirm } from "../../redux/boxSlice";
+import { unConfirm } from "../../redux/boxSlice";
 import { unAvatar, unContentPost, unNext } from "../../redux/ceatePostSlice";
 import "../../style/header.scss";
 const DialogConfirm = () => {

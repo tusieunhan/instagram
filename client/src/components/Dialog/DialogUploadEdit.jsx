@@ -14,8 +14,6 @@ const DialogUploadEdit = () => {
         dispatch(setContentPost({...contentPost,text: text + ' ' + emoji}));
         if (event) setChosenEmoji(false);
       };
-
-      console.log(contentPost)
   return (
     <div className="dialog-upload-edit">
               <div className="dialog-upload-edit-user border-bottom">

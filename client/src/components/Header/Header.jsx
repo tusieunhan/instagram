@@ -5,6 +5,7 @@ import { setBoxNoti, setBoxPost, setBoxUser,setIndexActive } from "../../redux/b
 import { useDispatch, useSelector } from "react-redux";
 import DialogNoti from "../Dialog/DialogNoti";
 import DialogUpload from "../Dialog/DialogUpload";
+import DialogUser from "../Dialog/DialogUser";
 const Header = () => {
   const dispatch = useDispatch();
   const box = useSelector((state) => state.box);
@@ -88,6 +89,7 @@ const Header = () => {
             />
             <div className={`imgBorder ${box.boxUser ? "imgActive" : " "}`}></div>
           </div>
+          {box.boxUser && <DialogUser />}
         </div>
       </div>
     </div>
