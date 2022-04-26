@@ -80,7 +80,7 @@ const Header = () => {
             }`}
             onClick={handleClickBoxPost}
           ></i>
-          <Link className="link" to="/trend">
+          <Link className="link" to="/explore">
             <i className="fa-regular fa-compass"></i>
           </Link>
           <i

@@ -8,6 +8,9 @@ import "./style/basic.scss";
 import Dialog from "./components/Dialog/Dialog";
 import { useSelector } from "react-redux";
 import Confirm from "./components/Dialog/Confirm";
+import Chat from "./components/Chat/Chat";
+import Explore from "./components/Explore/Explore";
+import User from "./components/User/User";
 
 function App() {
   const user = true;
@@ -37,10 +40,15 @@ function App() {
       {box.boxPost && <Dialog overlay times />}
       {user && <Header />}
       {user ? (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:err" element={<Error />} />
-        </Routes>
+        <div class="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/inbox" element={<Chat />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/:user" element={<User />} />
+            <Route path="/:err" element={<Error />} />
+          </Routes>
+        </div>
       ) : (
         <Auth />
       )}

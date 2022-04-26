@@ -1,0 +1,76 @@
+@import './var.scss';
+
+
+.home{
+    &-posts{
+        height: calc(100vh - 62px);
+        background-color: red;
+        max-width: 614px;
+        width: 614px;
+        background-color: $colorlink;
+        overflow-y: scroll; 
+        &::-webkit-scrollbar{
+            display: none;
+        }  
+    }
+    &-suggest{
+        height: calc(100vh - 62px);
+        max-width: 293px;
+        width: 293px;
+        align-self: start;
+        // display: none;
+        margin-left: 30px;
+        &-user{
+            padding: 50px 0 20px 0;
+            & img {
+                width: 56px;
+                height: 56px;
+                border-radius: 50px;
+                object-fit: cover;
+            }
+            &-info{
+                align-items: center;
+            }
+            &-name{
+                & p:nth-child(1){
+                    font-weight: 500;
+                    font-size: 13px;
+                    margin-bottom: 5px;
+                }
+                & p:nth-child(2){
+                    color: $colorhover;
+                }
+            }
+            &-switch{
+                font-weight: 500;
+            }
+        }
+        &-title{
+            margin-bottom: 10px;
+         & p:nth-child(1){
+             font-weight: 500;
+             color: $colorhover;
+         }
+        }
+        &-follow{
+            &-item{
+                padding: 8px 0;
+            }
+            &-user img{
+                width: 32px;
+                height: 32px;
+                object-fit: cover;
+                border-radius: 50px;
+            }
+            &-name{
+                align-items: center;
+                & p:nth-child(1){margin-bottom: 5px;}
+                & p:nth-child(2){color: $colorhover;}
+            }
+            
+        }
+    }
+    &-content{
+        
+    }
+}
