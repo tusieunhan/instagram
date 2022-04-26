@@ -20,7 +20,9 @@ const DialogUpload = () => {
   const [currentAvatar, setCurrentAvatar] = useState();
   const [index, setIndex] = useState(0);
   const changeInputFile = (file) => {
-    dispatch(setContentPost({ ...contentPost, inputfile: file.target.className }));
+    dispatch(
+      setContentPost({ ...contentPost, inputfile: file.target.className })
+    );
     let url = file.target.files;
     if (url.length === 1) {
       let avt = URL.createObjectURL(url[0]);
@@ -142,10 +144,18 @@ const DialogUpload = () => {
                 " "
               ) : (
                 <>
-                  <div ref={btnNextRef} onClick={btnNext} className="btn-preview btn-next">
+                  <div
+                    ref={btnNextRef}
+                    onClick={btnNext}
+                    className="btn-preview btn-next"
+                  >
                     <i className="fa-light fa-chevron-right"></i>
                   </div>
-                  <div ref={btnPrevRef} onClick={btnPrev} className="btn-preview btn-prev">
+                  <div
+                    ref={btnPrevRef}
+                    onClick={btnPrev}
+                    className="btn-preview btn-prev"
+                  >
                     <i className="fa-light fa-chevron-left"></i>
                   </div>
                 </>
@@ -156,9 +166,7 @@ const DialogUpload = () => {
               </div>
             </div>
           )}
-          {next && (
-            <DialogUploadEdit />
-          )}
+          {next && <DialogUploadEdit />}
         </div>
       </div>
     </>

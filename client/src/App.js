@@ -40,7 +40,7 @@ function App() {
       {box.boxPost && <Dialog overlay times />}
       {user && <Header />}
       {user ? (
-        <div class="container">
+        <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/inbox" element={<Chat />} />
