@@ -57,12 +57,15 @@ const Header = () => {
           />
         </div>
         </a>
-        <div className="header-center-search flex-center">
-          <input type="text" placeholder="Search" value={textSearch} onChange={(e)=>setTextSearch(e.target.value)} onFocus={()=>dispatch(setBoxSearch())} />
+        <div className="center">
+          <div className="header-center-search flex-center">
+            <input type="text" placeholder="Search" value={textSearch} onChange={(e)=>setTextSearch(e.target.value)} onFocus={()=>dispatch(setBoxSearch())} />
+            <i className="btn-search fa-regular fa-magnifying-glass"></i>
+            {textSearch !== '' ? (<i  onClick={()=>setTextSearch('')}  className="btn-times fa-solid fa-circle-x"></i>) : ''}
+            {/* {box.boxPost && <DialogUpload />} */}
+          </div>
+          {box.boxPost && <DialogUpload />}
           {box.boxSearch && <DialogSearch />}
-          <i className="btn-search fa-regular fa-magnifying-glass"></i>
-          {textSearch !== '' ? (<i  onClick={()=>setTextSearch('')}  className="btn-times fa-solid fa-circle-x"></i>) : ''}
-           {box.boxPost && <DialogUpload />}
         </div>
         <div className="header-center-group flex">
           <Link className="link" to="/">
