@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "../../style/header.scss";
 import { Link } from "react-router-dom";
-import { setBoxNoti, setBoxPost, setBoxUser,setIndexActive } from "../../redux/boxSlice";
+import { setBoxNoti, setBoxPost, setBoxSearch, setBoxUser,setIndexActive } from "../../redux/boxSlice";
 import { useDispatch, useSelector } from "react-redux";
 import DialogNoti from "../Dialog/DialogNoti";
 import DialogUpload from "../Dialog/DialogUpload";
 import DialogUser from "../Dialog/DialogUser";
+import DialogSearch from "../Dialog/DialogSearch";
 const Header = () => {
   const dispatch = useDispatch();
   const box = useSelector((state) => state.box);
   const [index,setIndex] = useState(box.indexActive);
-
+  const [textSearch,setTextSearch] = useState('')
   const btnLink = document.querySelectorAll(".header-center-group .link i");
   btnLink.forEach((item, index) => {
     item.onclick = () => {
@@ -45,20 +46,22 @@ const Header = () => {
       item.classList.remove("fa-solid");
     }
   };
-
   return (
     <div className="header">
       <div className="header-center">
+        <a href="/">
         <div className="header-center-logo flex">
           <img
             src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png"
             alt=""
           />
         </div>
+        </a>
         <div className="header-center-search flex-center">
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" value={textSearch} onChange={(e)=>setTextSearch(e.target.value)} onFocus={()=>dispatch(setBoxSearch())} />
+          {box.boxSearch && <DialogSearch />}
           <i className="btn-search fa-regular fa-magnifying-glass"></i>
-          <i className="btn-times fa-solid fa-circle-x"></i>
+          {textSearch !== '' ? (<i  onClick={()=>setTextSearch('')}  className="btn-times fa-solid fa-circle-x"></i>) : ''}
            {box.boxPost && <DialogUpload />}
         </div>
         <div className="header-center-group flex">

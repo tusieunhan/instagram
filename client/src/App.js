@@ -32,6 +32,7 @@ function App() {
     <div className="App">
       {box.boxConfirm && <Confirm overlay />}
       {box.boxNoti && <Dialog />}
+      {box.boxSearch && <Dialog />}
       {box.boxUser && <Dialog />}
       {box.boxPost && <Dialog overlay times />}
       {user && <Header />}

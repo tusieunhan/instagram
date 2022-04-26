@@ -27,7 +27,7 @@ const DialogUser = () => {
             <Link onClick={()=>dispatch(unAllBox())} to='/vantusieunhan' className="dialog-user-item  flex gap-10">
               <p>Log Out</p>
             </Link>
-        </div>
+      </div>
     </div>
   )
 }
