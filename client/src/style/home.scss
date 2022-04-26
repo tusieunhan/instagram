@@ -6,7 +6,7 @@
     background-color: red;
     max-width: 614px;
     width: 614px;
-    background-color: $colorlink;
+    background-color: $colormain;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -96,6 +96,43 @@
       }
       &-copy-right {
         margin-top: 15px;
+      }
+    }
+  }
+  &-story {
+    margin: 20px 0;
+    width: calc(100% - 2px);
+    height: 118px;
+    background-color: $colorbox;
+    border: 1px solid $colorborder;
+    &-list {
+      padding: 16px 0;
+
+      &-item {
+        width: 80px;
+        text-align: center;
+        align-items: center;
+        width: 80px;
+        &-img {
+          margin: 0 auto;
+          width: 60px;
+          height: 60px;
+          border-radius: 50px;
+          border: 2px solid $colorlink;
+          overflow: hidden;
+          margin-bottom: 5px;
+          & img {
+            padding: 2px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50px;
+            object-fit: cover;
+          }
+        }
+        & {
+          text-align: center;
+          align-items: center;
+        }
       }
     }
   }
