@@ -13,7 +13,7 @@ import Explore from "./components/Explore/Explore";
 import User from "./components/User/User";
 
 function App() {
-  const user = true;
+  const user = false;
   const box = useSelector((state) => state.box);
   // const user = useSelector((state) => state.user.user.username);
   const url = window.location.pathname;
@@ -37,7 +37,7 @@ function App() {
       {box.boxNoti && <Dialog />}
       {box.boxSearch && <Dialog />}
       {box.boxUser && <Dialog />}
-      {box.boxPost && <Dialog overlay times />}
+      {box.boxPost && <Dialog overlay times zIndex />}
       {user && <Header />}
       {user ? (
         <div className="container">

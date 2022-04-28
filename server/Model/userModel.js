@@ -14,11 +14,13 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+  birthday: {
+    type: Date,
+  },
   photo: {
     required: true,
     type: String,
-    default:
-      "https://cdn-icons-png.flaticon.com/512/1053/1053244.png",
+    default: "https://cdn-icons-png.flaticon.com/512/1053/1053244.png",
   },
   sex: {
     type: String,
@@ -26,16 +28,16 @@ const userSchema = new mongoose.Schema({
   },
   followers: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   },
   following: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   },
   posts: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Post"
-  }
+    ref: "Post",
+  },
 });
 
 let User = mongoose.model("User", userSchema);

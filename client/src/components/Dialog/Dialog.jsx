@@ -4,7 +4,7 @@ import { setBoxConfirm, unAllBox } from "../../redux/boxSlice";
 
 import "../../style/dialog.scss";
 
-const Dialog = ({ overlay, times }) => {
+const Dialog = ({ overlay, times, zIndex }) => {
   const dispatch = useDispatch();
   const indexActive = useSelector((state) => state.box.indexActive);
   const avatar = useSelector((state) => state.createPost.avatar);
@@ -20,8 +20,13 @@ const Dialog = ({ overlay, times }) => {
 
     btnLink[indexActive].classList.add("fa-solid");
   };
+
+  const countIndex = zIndex ? 3 : 0;
+
+  console.log(countIndex);
   return (
     <div
+      style={{ zIndex: `${countIndex}` }}
       onClick={handleClickDialog}
       className={`dialog flex ${overlay ? "overlay" : ""}`}
     >

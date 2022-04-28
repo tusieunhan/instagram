@@ -8,15 +8,7 @@ const Auth = () => {
 
   return (
     <div className="auth flex-center">
-      <div className="auth-box">
-        <div className="auth-box-logo">
-          <img
-            src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png"
-            alt=""
-          />
-        </div>
-        {isAuth ? <Login /> : <Register />}
-      </div>
+      <div className="auth-box">{isAuth ? <Login /> : <Register />}</div>
       <div className="auth-switch">
         <div className="auth-switch-text flex-center gap-10">
           <p className="auth-switch-text-question">

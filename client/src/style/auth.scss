@@ -1,6 +1,7 @@
 @import "./var.scss";
 
 .auth {
+  transition: all 0.3s linear;
   background-color: $colormain;
   flex-direction: column;
   width: 100%;
@@ -118,12 +119,57 @@
   }
   &-desc {
     line-height: 1.5;
-    font-size: 13px;
+    font-size: 12px;
     color: $colorsub;
     margin: 20px 0 30px 0;
     text-align: center;
     & span {
       color: $colorhover;
+      font-size: 12px;
+    }
+  }
+  &-brithday {
+    margin: 0 28px 28px 28px;
+    width: 84%;
+    text-align: center;
+    & i {
+      font-size: 75px;
+      padding: 20px 0;
+    }
+    &-title p {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    &-desc p:nth-child(2) {
+      margin: 5px 0 10px 0;
+      cursor: pointer;
+    }
+    &-day {
+      & select {
+        padding: 8px;
+        color: $colorhover;
+        border: 1px solid $colorborder;
+        border-radius: 3px;
+        margin: 10px 0 15px 0;
+        &::-ms-expand {
+          margin-left: 5px;
+        }
+      }
+    }
+    &-warning p {
+      font-size: 12px;
+      color: $colorhover;
+    }
+    &-warning p:nth-child(1) {
+      margin-bottom: 30px;
+    }
+    &-btnnext {
+      margin: 20px 0;
+    }
+    &-btnback {
+      font-weight: 500;
+      cursor: pointer;
     }
   }
 }

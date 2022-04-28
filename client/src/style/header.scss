@@ -1,5 +1,5 @@
 @import "./var.scss";
-.center{
+.center {
   position: relative;
 }
 .header {
@@ -24,7 +24,7 @@
       align-items: stretch;
       width: 95%;
       position: relative;
-      z-index: 1;
+      z-index: 2;
       & > input {
         z-index: 0;
         padding-left: 20px;
@@ -57,7 +57,7 @@
       & i {
         font-size: $iconsize;
         color: $colortext;
-        &:active{
+        &:active {
           opacity: 0.8;
         }
       }
@@ -105,12 +105,11 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     position: absolute;
   }
-  &-noti2{
+  &-noti2 {
     width: 500px;
     height: 100%;
     overflow-y: scroll;
     position: absolute;
-
   }
 
   &-time {
@@ -286,30 +285,29 @@
           color: $colorborder;
         }
       }
-      &-location{
+      &-location {
         padding: 7px;
-        & input{
+        & input {
           width: 85%;
           padding: 5px 10px;
           background-color: $colorbox;
           border: none;
-        font-family: Poppins;
-          &:focus{
+          font-family: Poppins;
+          &:focus {
             outline: none;
           }
-         
         }
-        & i{
+        & i {
           font-size: 16px;
           margin-right: 10px;
         }
-        & p{
+        & p {
           padding: 10px;
         }
       }
     }
   }
-  &-search{
+  &-search {
     position: absolute;
     background-color: $colorbox;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -319,47 +317,46 @@
     z-index: 99;
     right: -10%;
     &::after,
-    &::before{
+    &::before {
       margin-right: 120px;
     }
-    &-body{
+    &-body {
       width: 357px;
       height: 362px;
     }
-    &-list{
+    &-list {
       overflow-y: scroll;
       width: 100%;
       height: 100%;
     }
-    &-item{
+    &-item {
       padding: 8px 10px;
       align-items: center;
-      &:hover{
+      &:hover {
         background-color: $colormain;
       }
-      & img{
+      & img {
         width: 44px;
         object-fit: cover;
         height: 44px;
-        border-radius:  50px;
-
+        border-radius: 50px;
       }
-      & p:nth-child(1){
+      & p:nth-child(1) {
         font-weight: 500;
         margin-bottom: 3px;
         font-size: 13px;
-        & i{
+        & i {
           font-size: 12px;
           color: $colorlink;
         }
       }
-      & p:nth-child(2){
+      & p:nth-child(2) {
         font-weight: 400;
         color: $colorhover;
       }
     }
   }
-  &-user{
+  &-user {
     width: 230px;
     height: 194px;
     background-color: $colorbox;
@@ -369,18 +366,17 @@
     border-radius: 3px;
     z-index: 9;
     transform: translateX(50px);
-    &-list{
-
+    &-list {
     }
-    &-item{
+    &-item {
       padding: 11px 15px;
-      &:hover{
+      &:hover {
         background-color: $colormain;
       }
       & i {
         font-size: 16px;
       }
-      & p{
+      & p {
         font-size: $textsize;
         font-weight: 400;
       }
@@ -434,15 +430,14 @@
 }
 .btn-prev {
   left: 10px;
-
 }
 .picker {
   position: absolute;
   left: 0;
 }
-.btn-preview{
+.btn-preview {
   cursor: pointer;
-  &:hover{
+  &:hover {
     opacity: 0.9;
   }
 }

@@ -16,6 +16,7 @@ import DialogSearch from "../Dialog/DialogSearch";
 const Header = () => {
   const dispatch = useDispatch();
   const box = useSelector((state) => state.box);
+  const { boxNoti, boxPost, boxSearch, boxUser } = box;
   const [index, setIndex] = useState(box.indexActive);
   const [textSearch, setTextSearch] = useState("");
   const btnLink = document.querySelectorAll(".header-center-group .link i");
@@ -83,8 +84,8 @@ const Header = () => {
             )}
             {/* {box.boxPost && <DialogUpload />} */}
           </div>
-          {box.boxPost && <DialogUpload />}
-          {box.boxSearch && <DialogSearch />}
+          {boxPost && <DialogUpload />}
+          {boxSearch && <DialogSearch />}
         </div>
         <div className="header-center-group flex">
           <Link className="link" to="/">
@@ -95,7 +96,7 @@ const Header = () => {
           </Link>
           <i
             className={`fa-regular fa-square-plus ${
-              box.boxPost ? "fa-solid" : " "
+              boxPost ? "fa-solid" : " "
             }`}
             onClick={handleClickBoxPost}
           ></i>
@@ -103,20 +104,18 @@ const Header = () => {
             <i className="fa-regular fa-compass"></i>
           </Link>
           <i
-            className={`fa-regular fa-heart ${box.boxNoti ? "fa-solid" : " "}`}
+            className={`fa-regular fa-heart ${boxNoti ? "fa-solid" : " "}`}
             onClick={handleClickBoxNoti}
           ></i>
-          {box.boxNoti && <DialogNoti />}
+          {boxNoti && <DialogNoti />}
           <div className="header-center-img" onClick={handleClickBoxUSer}>
             <img
               src="https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/240826453_2975993636023115_4454241435896868815_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_ohc=gCbv6kbpAQUAX_1Mzwz&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT-Tl_Oph2vRw4FcjP-OLNYpp3obPYLa1Ksydb4vtoFT1g&oe=6263F525"
               alt=""
             />
-            <div
-              className={`imgBorder ${box.boxUser ? "imgActive" : " "}`}
-            ></div>
+            <div className={`imgBorder ${boxUser ? "imgActive" : " "}`}></div>
           </div>
-          {box.boxUser && <DialogUser />}
+          {boxUser && <DialogUser />}
         </div>
       </div>
     </div>
