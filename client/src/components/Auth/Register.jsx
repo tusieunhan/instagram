@@ -1,30 +1,32 @@
 import React, { memo, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Input from "./Input";
 import OrSpace from "./OrSpace";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import InputOption from "./InputOption";
-// import { registerUser } from "../API/authAPI";
+import { registerUser, verifyCode } from "../API/authAPI";
+import { setBirthday, setCode } from "../../redux/userSlice";
 
 const Register = () => {
-  const [isBirthday, setBirthday] = useState(true);
+  const dispatch = useDispatch();
+  const userRedux = useSelector((state) => state.user);
+  const { isCode, loading, isBirthday } = userRedux;
+  console.log(isBirthday);
+  const [codeNumber, setCodeNumber] = useState();
+
   const [user, setUser] = useState({
     email: "",
     username: "",
     password: "",
     name: "",
-    birthday: null,
+    dayofbrith: "",
+    monthofbirth: "",
+    yearofbirth: "",
   });
 
-  console.log(user);
-  const dispatch = useDispatch();
   const responseFacebook = async (data) => {
     console.log(data);
   };
-  const handleRegister = () => {
-    setBirthday(!isBirthday);
-  };
-  const birthday = [];
 
   const arrDay = [
     31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13,
@@ -50,10 +52,20 @@ const Register = () => {
     arrYear.push(i);
   }
 
-  const handleClickNext = () => {
-    setUser({ ...user, birthday });
-    console.log(user);
+  const handleClickSignup = () => {
+    dispatch(setBirthday());
   };
+  const handleClickNext = () => {
+    registerUser(dispatch, user);
+  };
+  const handleExit = () => {
+    dispatch(setCode());
+    dispatch(setBirthday());
+  };
+  const handleClickVerify = () => {
+    verifyCode(dispatch, { username: user["username"], code: codeNumber });
+  };
+  console.log(isBirthday);
 
   return (
     <>
@@ -101,7 +113,7 @@ const Register = () => {
               placeholder="Password"
               type="password"
             />
-            <div onClick={handleRegister} className="btn btn-login">
+            <div onClick={handleClickSignup} className="btn btn-login">
               Sign Up
             </div>
             <p className="register-desc">
@@ -112,53 +124,96 @@ const Register = () => {
           </div>
         </>
       ) : (
-        <>
-          <div className="register-brithday">
-            <i className="fa-thin fa-cake-candles"></i>
-            <div className="register-brithday-title">
-              <p>Add Your Birthday</p>
-            </div>
-            <div className="register-brithday-desc">
-              <p className="colortext">
-                This won't be a part of your public profile.
-              </p>
-              <p className="colorlink">Who do i need to provide my birthday</p>
-            </div>
-            <div className="register-brithday-day flex-center gap-10">
-              <InputOption
-                listValue={arrMonth}
-                onChange={(e) => (birthday[1] = e.target.value)}
-              />
-              <InputOption
-                listValue={arrDay}
-                onChange={(e) => (birthday[0] = e.target.value)}
-              />
-              <InputOption
-                listValue={arrYear}
-                onChange={(e) => (birthday[2] = e.target.value)}
-              />
-            </div>
-            <div className="register-brithday-warning">
-              <p>You need to enter the date you were born</p>
-              <p>
-                Use your own birthday, even if this account is for a business, a
-                pet, or something else
-              </p>
-            </div>
-            <div
-              onClick={handleClickNext}
-              className="btn btn-login register-brithday-btnnext"
-            >
-              Next
-            </div>
-            <p
-              onClick={() => setBirthday(!isBirthday)}
-              className="colorlink register-brithday-btnback"
-            >
-              Go back
-            </p>
-          </div>
-        </>
+        <div className="register-brithday">
+          {!isCode ? (
+            <>
+              <i className="fa-thin fa-cake-candles"></i>
+              <div className="register-brithday-title">
+                <p>Add Your Birthday</p>
+              </div>
+              <div className="register-brithday-desc">
+                <p className="colortext">
+                  This won't be a part of your public profile.
+                </p>
+                <p className="colorlink">
+                  Who do i need to provide my birthday
+                </p>
+              </div>
+
+              <div className="register-brithday-day flex-center gap-10">
+                <InputOption
+                  listValue={arrMonth}
+                  onChange={(e) =>
+                    setUser({ ...user, dayofbrith: e.target.value })
+                  }
+                />
+                <InputOption
+                  listValue={arrDay}
+                  onChange={(e) =>
+                    setUser({ ...user, monthofbrith: e.target.value })
+                  }
+                />
+                <InputOption
+                  listValue={arrYear}
+                  onChange={(e) =>
+                    setUser({ ...user, yearofbrith: e.target.value })
+                  }
+                />
+              </div>
+              <div className="register-brithday-warning">
+                <p>You need to enter the date you were born</p>
+                <p>
+                  Use your own birthday, even if this account is for a business,
+                  a pet, or something else
+                </p>
+              </div>
+              <div
+                onClick={handleClickNext}
+                className="btn btn-login register-brithday-btnnext"
+              >
+                Next {loading ? "loading..." : " "}
+              </div>
+              <div
+                onClick={handleExit}
+                className="register-brithday-btnback colorlink"
+              >
+                Go back
+              </div>
+            </>
+          ) : (
+            <>
+              <i class="fa-thin fa-envelope-circle-check"></i>
+              <div className="register-brithday-title">
+                <p>Enter Confirmation Code</p>
+              </div>
+              <div className="register-brithday-desc">
+                <p className="colortext">
+                  `Enter the confirmation code we sent to {user.email}`
+                </p>
+                <p className="colorlink">Resend code</p>
+              </div>
+              <div className="register w-full verify-fix">
+                <Input
+                  onChange={(e) => setCodeNumber(e.target.value)}
+                  placeholder="Full Name"
+                  type="text"
+                />
+              </div>
+              <div
+                onClick={handleClickVerify}
+                className="btn btn-login register-brithday-btnnext"
+              >
+                Next {loading ? "loading..." : " "}
+              </div>
+              <div
+                onClick={handleExit}
+                className="register-brithday-btnback colorlink"
+              >
+                Go back
+              </div>
+            </>
+          )}
+        </div>
       )}
     </>
   );

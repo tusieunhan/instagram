@@ -14,8 +14,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-  birthday: {
-    type: Date,
+  dayofbrith: {
+    type: String,
+  },
+  monthofbrith: {
+    type: String,
+  },
+  yearofbrith: {
+    type: String,
   },
   photo: {
     required: true,
@@ -37,6 +43,12 @@ const userSchema = new mongoose.Schema({
   posts: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Post",
+  },
+  code: {
+    type: Number,
+  },
+  isVerify: {
+    default: false,
   },
 });
 
