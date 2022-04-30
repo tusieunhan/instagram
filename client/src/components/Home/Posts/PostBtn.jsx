@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PostBtn = () => {
+const PostBtn = ({data}) => {
   return (
     <div className="post-btn">
         <div className='post-btn-group flex-between '>
@@ -14,18 +14,8 @@ const PostBtn = () => {
         </div>
     </div>
     <div className="post-total flex gap-5">
-        <div className="post-total-user">
-            <img src="https://thuthuatnhanh.com/wp-content/uploads/2020/02/anh-icon-mat-gau-truc-dang-yeu.png" alt="" />
-        </div>
-        <p className="post-total-title">
-            Liked by 
-        </p>
-        <p className="post-total-like-name colortext w-600">
-            mies_duynh 
-        </p>
-        <p>and</p>
         <p className="post-total-like-count colortext w-600">
-           668 others
+           {data} likes
         </p>
     </div>
     </div>
