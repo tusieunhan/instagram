@@ -52,7 +52,9 @@
 .gap-20 {
   gap: 20px;
 }
-
+.colorsub{
+  color: $colorhover;
+}
 .colorlink {
   color: $colorlink;
 }
@@ -166,6 +168,14 @@
 .w-600{
   font-weight: 600;
 }
-.boder{
+.border{
   border: 1px solid $colorborder;
+}
+.border-top{
+  border-top: 1px solid $colorborder;
+}
+.textoneline{
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  white-space: nowrap;
 }

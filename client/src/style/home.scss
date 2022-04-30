@@ -1,9 +1,9 @@
 @import "./var.scss";
 @import './homePost.scss';
 .home {
+
   &-posts {
     height: calc(100vh - 62px);
-    background-color: red;
     max-width: 614px;
     width: 614px;
     background-color: $colormain;
@@ -97,6 +97,12 @@
       &-copy-right {
         margin-top: 15px;
       }
+    }
+  }
+  &-content{
+    &-post{
+    background-color: $colorbox;
+      margin-bottom: 30px;
     }
   }
 }

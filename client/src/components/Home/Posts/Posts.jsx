@@ -83,6 +83,7 @@ const Posts = () => {
       <div className="home-content">
         <div className="home-content-posts">
             <Post />
+            <Post />
         </div>
       </div>
     </div>
