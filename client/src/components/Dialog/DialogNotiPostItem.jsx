@@ -1,17 +1,16 @@
 import React from "react";
+import AvatarStory from "../Avatar/AvatarStory";
 
 const DialogNotiPostItem = () => {
   return (
     <>
       <div className="dialog-notipost-btn gap-10 flex">
-        <img
-          src="https://reviewnao.com/wp-content/uploads/2021/11/hinh-anh-ma-cute-34.jpg"
-          alt=""
-        />
+        
         <div className="dialog-notipost-item-text flex gap-5">
-          <p className="dialog-notipost-item-name">Follow Request</p>
-          <p className="dialog-notipost-item-noti"> liked your photo.</p>
-          <p className="dialog-notipost-item-time">1h</p>
+        <AvatarStory size={"img-md-sm"} photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa81NT0cfFGI-geFewuerTzRtpcj-PalEsnA&usqp=CAU" idStory={"aaa"} story=" " />
+            <p className="dialog-notipost-item-name">Follow Request</p>
+            <p className="dialog-notipost-item-noti"> liked your photo.</p>
+            <p className="dialog-notipost-item-time">1h</p>
         </div>
         <div className="dialog-notipost-item-btn flex ">
           <img

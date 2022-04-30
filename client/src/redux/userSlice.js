@@ -26,6 +26,7 @@ export const userSlice = createSlice({
     setNotiRegister: (state, action) => {
       state.notiRegister = action.payload;
     },
+
   },
 });
 

@@ -11,7 +11,6 @@ const Register = () => {
   const dispatch = useDispatch();
   const userRedux = useSelector((state) => state.user);
   const { isCode, loading, isBirthday } = userRedux;
-  console.log(isBirthday);
   const [codeNumber, setCodeNumber] = useState();
 
   const [user, setUser] = useState({
@@ -195,7 +194,7 @@ const Register = () => {
               <div className="register w-full verify-fix">
                 <Input
                   onChange={(e) => setCodeNumber(e.target.value)}
-                  placeholder="Full Name"
+                  placeholder="Confirm code"
                   type="text"
                 />
               </div>

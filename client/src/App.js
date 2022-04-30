@@ -13,7 +13,7 @@ import Explore from "./components/Explore/Explore";
 import User from "./components/User/User";
 
 function App() {
-  const user = false;
+  const user = true;
   const box = useSelector((state) => state.box);
   // const user = useSelector((state) => state.user.user.username);
   const url = window.location.pathname;

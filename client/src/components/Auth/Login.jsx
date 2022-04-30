@@ -8,7 +8,9 @@ const Login = () => {
   const responseFacebook = async (data) => {
     console.log(data);
   };
-  console.log(user);
+  const handleClickLogin = ()=>{
+    
+  }
   return (
     <>
       <div className="auth-box-logo">
@@ -28,7 +30,7 @@ const Login = () => {
           placeholder="Password"
           type="password"
         />
-        <div className="btn btn-login">Log In</div>
+        <div onClick={handleClickLogin} className="btn btn-login">Log In</div>
         <OrSpace text="OR" />
         <FacebookLogin
           appId="268395025475638"

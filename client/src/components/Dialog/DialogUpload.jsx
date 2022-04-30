@@ -19,12 +19,16 @@ const DialogUpload = () => {
   const next = useSelector((state) => state.createPost.next);
   const [currentAvatar, setCurrentAvatar] = useState();
   const [index, setIndex] = useState(0);
+  const [typeFile, setTypeFile] = useState("image/jpeg");
+
   const changeInputFile = (file) => {
     dispatch(
       setContentPost({ ...contentPost, inputfile: file.target.className })
     );
     let url = file.target.files;
     if (url.length === 1) {
+      setTypeFile(url[0].type)
+      console.log(url[0].type)
       let avt = URL.createObjectURL(url[0]);
       dispatch(setAvatar(avt));
       setCurrentAvatar(avt);
@@ -162,7 +166,7 @@ const DialogUpload = () => {
               )}
 
               <div className="dialog-upload-preview-img">
-                <img src={currentAvatar} alt="" />
+                {typeFile === "video/mp4" ?  <video autoPlay muted src={currentAvatar}></video>: <img src={currentAvatar} alt="" />  }
               </div>
             </div>
           )}
