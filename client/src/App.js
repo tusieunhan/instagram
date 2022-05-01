@@ -35,7 +35,7 @@ function App() {
   }, [user, url]);
   return (
     <div className="App">
-      {story.length > 0 && <Story />}
+      {story !== null && <Story />}
       {box.boxConfirm && <Confirm overlay />}
       {box.boxNoti && <Dialog />}
       {box.boxSearch && <Dialog />}

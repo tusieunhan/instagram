@@ -78,6 +78,10 @@
             outline: 1px solid $colorbox;
             padding: 0 20px;
             border: none;
+            color: $colorbox;
+            &::placeholder {
+              color: $colorbox;
+            }
           }
         }
       }
