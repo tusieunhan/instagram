@@ -31,7 +31,7 @@ const Posts = () => {
         "https://kenh14cdn.com/k:gCsVfdir6nKzzfyaqMLKcccccccccc/Image/2013/putin1-73ce3/vladimir-putin-cau-hoc-sinh-tieu-hoc-muon-lam-diep-vien.jpg",
       type: "video/mp4",
       datapost:
-        "https://v16-webapp.tiktok.com/8f9129b0798b37ac384c7ebfef8cdccb/626e779a/video/tos/alisg/tos-alisg-pve-0037/725c92a172d3410d83ef544da0ab2ff7/?a=1988&br=5002&bt=2501&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZcKQRwe2NZbnml7Gb&l=202205010605260102450430261F4E1F51&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzp5M2c6ZnhyPDMzODgzNEApaWUzZDo1Mzs8Nzk5PGdoaGdjaTJlcjRnbS1gLS1kLy1zczJgLjUuMzFgYF9gNGNjNC06Yw%3D%3D&vl=&vr=",
+        "https://v16-webapp.tiktok.com/11935f57b10d82e757d6b40e38a52a64/626ed6bc/video/tos/useast2a/tos-useast2a-pve-0037-aiso/c75db214deaf4a26898b9118f3363972/?a=1988&br=3538&bt=1769&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZdukRwe2NLuQml7Gb&l=202205011251160102440552270B8A80E3&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M21zdWg6Zmw5PDMzZjgzM0ApNWRmNjQ6Z2U8N2RpMzNpM2c1a3NwcjRvcDJgLS1kL2Nzcy4yNGIxYl8vYzNfLWBjNC06Yw%3D%3D&vl=&vr=",
       likecount: 654,
       comments: [
         { username: "obama", comment: "How to make love ?" },

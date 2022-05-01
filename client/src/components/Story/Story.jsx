@@ -6,10 +6,24 @@ const Story = () => {
   const dispatch = useDispatch();
   const btnNextRef = useRef();
   const btnPrevRef = useRef();
-  const story = useSelector((state) => state.story.data);
-  const [index, setIndex] = useState(2);
-  const { username, photo, storis } = story;
-
+  const timelineRef = useRef();
+  const dataStory = useSelector((state) => state.story.data);
+  const [index, setIndex] = useState(0);
+  const { username, photo, storis } = dataStory;
+  const {type ,content} = storis[index]
+  let timer;
+  let delay = 6000;
+  useEffect(() => {
+    const checkType = ()=>{
+      if(type ==="video/mp4"){
+        delay = 20000
+      }else{
+        delay = 6000
+      }
+    }
+    checkType()
+  }, [type])
+  
   useEffect(() => {
     if (index >= storis?.length - 1) {
       btnNextRef.current.style.display = "none";
@@ -22,9 +36,24 @@ const Story = () => {
       btnPrevRef.current.style.display = "none";
       btnNextRef.current.style.display = "block";
     }
+    let timeline = document.querySelectorAll('.timelineAmimation')
+    timeline[index].classList.add("timelineActive")
+    timer =  setTimeout(() => {
+      handleClickNext()
+    }, delay);
+    return ()=> clearTimeout(timer)
   }, [index, storis?.length]);
 
-  console.log(username, photo);
+  const handleClickPrev = ()=>{
+    if (index === 0) return;
+    setIndex(index - 1)
+    let timeline = document.querySelectorAll('.timelineAmimation')
+    timeline[index].classList.remove("timelineActive")
+  }
+  const handleClickNext =()=>{
+    if (index >= storis?.length - 1) return
+    setIndex(index + 1)
+  }
   return (
     <div className="story">
       <div className="story-full">
@@ -48,12 +77,15 @@ const Story = () => {
         <div className="story-body flex">
           <div className="story-body-content flex">
             <div className="story-body-content-img">
-              <img src={storis[index]} alt="" />
+              {type === "image/jpg" && <img src={content} alt="" /> }
+              {type === "video/mp4" && <video autoPlay playsInline  src={content} alt="" /> }
+              
               <div className="story-body-content-group flex-between">
                 <div className="story-body-content-group-header">
                   <div className="story-body-content-timeline flex gap-5">
-                    <div className="story-body-content-timeline-item"></div>
-                    <div className="story-body-content-timeline-item"></div>
+
+                    {storis?.map((index)=><div key={index}  className="story-body-content-timeline-item"><div  ref={timelineRef} className="timelineAmimation"></div></div>)}
+
                   </div>
                   <div className="story-body-content-info flex-between">
                     <div className="story-body-content-info-user flex gap-10">
@@ -68,10 +100,10 @@ const Story = () => {
                     </div>
                   </div>
                 </div>
-                <div className="story-body-content-group-footer flex gap-10">
+                <div className="story-body-content-group-footer flex gap-20">
                   <input type="text" placeholder="Reply to code.learn" />
                   <i className="fa-regular fa-heart"></i>
-                  <i className="fa-regular fa-paper-plane"></i>
+                  <i className=" story-body-content-group-footer-fix  fa-regular fa-paper-plane"></i>
                 </div>
               </div>
             </div>
@@ -79,7 +111,7 @@ const Story = () => {
           <div className="story-body-content-btn flex-between">
             <div className="btnn">
               <div
-                onClick={() => setIndex(index - 1)}
+                onClick={handleClickPrev}
                 ref={btnPrevRef}
                 className="story-body-content-btn-left"
               >
@@ -88,7 +120,7 @@ const Story = () => {
             </div>
             <div className="btnn">
               <div
-                onClick={() => setIndex(index + 1)}
+                onClick={handleClickNext}
                 ref={btnNextRef}
                 className="story-body-content-btn-right"
               >
