@@ -23,7 +23,6 @@ export const boxSlice = createSlice({
       state.boxNoti = false;
       state.boxUser = false;
       state.boxPost = false;
-
     },
     setBoxPost: (state) => {
       state.boxPost = !state.boxPost;
@@ -36,14 +35,12 @@ export const boxSlice = createSlice({
       state.boxPost = false;
       state.boxUser = false;
       state.boxSearch = false;
-
     },
     setBoxUser: (state) => {
       state.boxUser = !state.boxUser;
       state.boxNoti = false;
       state.boxPost = false;
       state.boxSearch = false;
-
     },
     setIndexActive: (state, action) => {
       state.indexActive = action.payload;
@@ -54,13 +51,22 @@ export const boxSlice = createSlice({
       state.boxPost = false;
       state.tabFollow = false;
       state.boxSearch = false;
-
     },
     unConfirm: (state) => {
       state.boxConfirm = false;
-    }
+    },
   },
 });
 
-export const { setBoxPost, setTabFollow, setBoxNoti, setBoxUser, unAllBox, setIndexActive, setBoxSearch, setBoxConfirm, unConfirm } = boxSlice.actions;
+export const {
+  setBoxPost,
+  setTabFollow,
+  setBoxNoti,
+  setBoxUser,
+  unAllBox,
+  setIndexActive,
+  setBoxSearch,
+  setBoxConfirm,
+  unConfirm,
+} = boxSlice.actions;
 export default boxSlice.reducer;

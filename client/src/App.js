@@ -11,10 +11,12 @@ import Confirm from "./components/Dialog/Confirm";
 import Chat from "./components/Chat/Chat";
 import Explore from "./components/Explore/Explore";
 import User from "./components/User/User";
+import Story from "./components/Story/Story";
 
 function App() {
   const user = true;
   const box = useSelector((state) => state.box);
+  const story = useSelector((state) => state.story.data);
   // const user = useSelector((state) => state.user.user.username);
   const url = window.location.pathname;
   let navigate = useNavigate();
@@ -33,11 +35,13 @@ function App() {
   }, [user, url]);
   return (
     <div className="App">
+      {story.length > 0 && <Story />}
       {box.boxConfirm && <Confirm overlay />}
       {box.boxNoti && <Dialog />}
       {box.boxSearch && <Dialog />}
       {box.boxUser && <Dialog />}
       {box.boxPost && <Dialog overlay times zIndex />}
+
       {user && <Header />}
       {user ? (
         <div className="container">

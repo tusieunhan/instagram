@@ -1,0 +1,115 @@
+@import "./var.scss";
+
+.story {
+  position: fixed;
+  inset: 0;
+  background-color: $colortext;
+  z-index: 99999;
+  &-full {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  &-header {
+    position: absolute;
+    justify-content: space-between;
+    color: $colorbox;
+    margin: 15px;
+    width: 100%;
+    z-index: 99999;
+    &-img {
+      height: 29px;
+      width: 103px;
+    }
+    &-times {
+      font-size: 24px;
+      margin-right: 35px;
+    }
+  }
+  &-body {
+    color: $colorbox;
+    width: 500px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+    height: calc(100vh - 40px);
+    background-color: $colorhover;
+    border-radius: 5px;
+    &-content {
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      &-img {
+        width: 100%;
+        height: 100%;
+      }
+      &-img img {
+        background-color: $colorbox;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &-group {
+        position: absolute;
+        width: 100%;
+        z-index: 99999;
+        flex-direction: column;
+        inset: 0;
+        &-footer,
+        &-header {
+          width: 100%;
+          margin: 10px;
+        }
+        &-footer {
+          align-items: center;
+          width: 95%;
+          margin: 20px;
+          cursor: pointer;
+          & > input {
+            margin-left: 20px;
+            width: 100%;
+            height: 40px;
+            background-color: transparent;
+            border-radius: 50px;
+            outline: 1px solid $colorbox;
+            padding: 0 20px;
+            border: none;
+          }
+        }
+      }
+      &-info {
+        margin: 10px;
+        width: 100%;
+        cursor: pointer;
+        &-user {
+          align-items: center;
+          & img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+          }
+        }
+        &-btn {
+          margin-right: 20px;
+          & i {
+            font-size: 18px;
+          }
+        }
+      }
+      &-timeline {
+        width: auto;
+        margin: 10px 10px 0 10px;
+        &-item {
+          height: 2px;
+          flex-direction: row;
+          width: 100%;
+          background-color: $colorbox;
+        }
+      }
+    }
+  }
+}
