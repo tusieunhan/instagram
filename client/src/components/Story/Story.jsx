@@ -4,26 +4,36 @@ import { unStory } from "../../redux/storySlice";
 import "../../style/story.scss";
 const Story = () => {
   const dispatch = useDispatch();
+  const videoRef = useRef();
   const btnNextRef = useRef();
   const btnPrevRef = useRef();
   const timelineRef = useRef();
   const dataStory = useSelector((state) => state.story.data);
   const [index, setIndex] = useState(0);
   const { username, photo, storis } = dataStory;
-  const {type ,content} = storis[index]
+  const { type, content } = storis[index];
   let timer;
+  const [isPlaying, setPlaying] = useState(false);
+  const [mute, setMute] = useState(true);
+  const [hearted, setHeart] = useState(false);
   let delay = 6000;
   useEffect(() => {
-    const checkType = ()=>{
-      if(type ==="video/mp4"){
-        delay = 20000
-      }else{
-        delay = 6000
+    const checkType = () => {
+      if (type === "video/mp4") {
+        delay = 20000;
+      } else {
+        delay = 6000;
       }
-    }
-    checkType()
-  }, [type])
-  
+    };
+    checkType();
+  }, [type]);
+
+  const timerAndNext = () => {
+    timer = setTimeout(() => {
+      handleClickNext();
+    }, delay);
+  };
+
   useEffect(() => {
     if (index >= storis?.length - 1) {
       btnNextRef.current.style.display = "none";
@@ -36,24 +46,52 @@ const Story = () => {
       btnPrevRef.current.style.display = "none";
       btnNextRef.current.style.display = "block";
     }
-    let timeline = document.querySelectorAll('.timelineAmimation')
-    timeline[index].classList.add("timelineActive")
-    timer =  setTimeout(() => {
-      handleClickNext()
-    }, delay);
-    return ()=> clearTimeout(timer)
+    let timeline = document.querySelectorAll(".timelineAmimation");
+    timeline[index].classList.add("timelineActive");
+    timerAndNext();
+    return () => clearTimeout(timer);
   }, [index, storis?.length]);
 
-  const handleClickPrev = ()=>{
+  const handleClickPrev = () => {
     if (index === 0) return;
-    setIndex(index - 1)
-    let timeline = document.querySelectorAll('.timelineAmimation')
-    timeline[index].classList.remove("timelineActive")
-  }
-  const handleClickNext =()=>{
-    if (index >= storis?.length - 1) return
-    setIndex(index + 1)
-  }
+    setIndex(index - 1);
+    let timeline = document.querySelectorAll(".timelineAmimation");
+    timeline[index].classList.remove("timelineActive");
+  };
+  const handleClickNext = () => {
+    if (index >= storis?.length - 1) return;
+    setIndex(index + 1);
+  };
+  const handleClickBtnVideo = () => {
+    setPlaying(!isPlaying);
+    if (timer >= 0) {
+      clearTimeout(timer);
+    } else {
+      if (type === "video/mp4") {
+        delay = 20000;
+        timerAndNext();
+      } else {
+        timerAndNext();
+      }
+    }
+    if (type === "video/mp4") {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+  const handleClickBtnVolume = () => {
+    setMute(!mute);
+    if (type === "video/mp4") {
+      if (videoRef.current.muted) {
+        videoRef.current.muted = false;
+      } else {
+        videoRef.current.muted = true;
+      }
+    }
+  };
   return (
     <div className="story">
       <div className="story-full">
@@ -77,15 +115,31 @@ const Story = () => {
         <div className="story-body flex">
           <div className="story-body-content flex">
             <div className="story-body-content-img">
-              {type === "image/jpg" && <img src={content} alt="" /> }
-              {type === "video/mp4" && <video autoPlay playsInline  src={content} alt="" /> }
-              
+              {type === "image/jpg" && <img src={content} alt="" />}
+              {type === "video/mp4" && (
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                  src={content}
+                  alt=""
+                />
+              )}
+
               <div className="story-body-content-group flex-between">
                 <div className="story-body-content-group-header">
                   <div className="story-body-content-timeline flex gap-5">
-
-                    {storis?.map((index)=><div key={index}  className="story-body-content-timeline-item"><div  ref={timelineRef} className="timelineAmimation"></div></div>)}
-
+                    {storis?.map((item, index) => (
+                      <div
+                        key={index}
+                        className="story-body-content-timeline-item"
+                      >
+                        <div
+                          ref={timelineRef}
+                          className="timelineAmimation"
+                        ></div>
+                      </div>
+                    ))}
                   </div>
                   <div className="story-body-content-info flex-between">
                     <div className="story-body-content-info-user flex gap-10">
@@ -94,15 +148,30 @@ const Story = () => {
                     </div>
 
                     <div className="story-body-content-info-btn flex gap-10">
-                      <i className="fa-solid fa-play"></i>
-                      <i className="fa-solid fa-volume-slash"></i>
+                      <i
+                        onClick={handleClickBtnVideo}
+                        className={`fa-solid ${
+                          isPlaying ? "fa-play" : "fa-pause"
+                        }`}
+                      ></i>
+                      <i
+                        onClick={handleClickBtnVolume}
+                        className={`fa-solid ${
+                          !mute ? "fa-volume-slash" : "fa-volume"
+                        }`}
+                      ></i>
                       <i className="fa-solid fa-ellipsis"></i>
                     </div>
                   </div>
                 </div>
                 <div className="story-body-content-group-footer flex gap-20">
-                  <input type="text" placeholder="Reply to code.learn" />
-                  <i className="fa-regular fa-heart"></i>
+                  <input type="text" placeholder={`Reply to ${username}`} />
+                  <i
+                    onClick={() => setHeart(!hearted)}
+                    className={`${
+                      hearted ? "fa-solid colorred" : "fa-regular"
+                    } fa-heart`}
+                  ></i>
                   <i className=" story-body-content-group-footer-fix  fa-regular fa-paper-plane"></i>
                 </div>
               </div>

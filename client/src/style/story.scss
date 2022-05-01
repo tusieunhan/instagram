@@ -83,8 +83,8 @@
               color: $colorbox;
             }
           }
-          &-fix{
-            margin-right:20px;
+          &-fix {
+            margin-right: 20px;
           }
         }
       }
@@ -126,7 +126,7 @@
   z-index: 9999999999;
   transform: translateX(-50px);
 }
-.timelineActive{
+.timelineActive {
   background-color: $colorbox;
   animation: timeline 6s linear;
   width: 100%;
@@ -134,9 +134,13 @@
 }
 
 @keyframes timeline {
-  0%{
+  0% {
     width: 0;
-  }100%{
+  }
+  100% {
     width: 100%;
   }
+}
+.colorred {
+  color: red;
 }
