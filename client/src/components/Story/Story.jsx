@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { unStory } from "../../redux/storySlice";
 import "../../style/story.scss";
 const Story = () => {
   const dispatch = useDispatch();
+  const btnNextRef = useRef();
+  const btnPrevRef = useRef();
   const story = useSelector((state) => state.story.data);
   const [index, setIndex] = useState(2);
   const { username, photo, storis } = story;
+
+  useEffect(() => {
+    if (index >= storis?.length - 1) {
+      btnNextRef.current.style.display = "none";
+      btnPrevRef.current.style.display = "block";
+    } else {
+      btnPrevRef.current.style.display = "block";
+      btnNextRef.current.style.display = "block";
+    }
+    if (index === 0) {
+      btnPrevRef.current.style.display = "none";
+      btnNextRef.current.style.display = "block";
+    }
+  }, [index, storis?.length]);
 
   console.log(username, photo);
   return (
@@ -57,6 +73,26 @@ const Story = () => {
                   <i className="fa-regular fa-heart"></i>
                   <i className="fa-regular fa-paper-plane"></i>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="story-body-content-btn flex-between">
+            <div className="btnn">
+              <div
+                onClick={() => setIndex(index - 1)}
+                ref={btnPrevRef}
+                className="story-body-content-btn-left"
+              >
+                <i className="fa-solid fa-circle-chevron-left"></i>
+              </div>
+            </div>
+            <div className="btnn">
+              <div
+                onClick={() => setIndex(index + 1)}
+                ref={btnNextRef}
+                className="story-body-content-btn-right"
+              >
+                <i className="fa-solid  fa-circle-chevron-right"></i>
               </div>
             </div>
           </div>
