@@ -1,0 +1,33 @@
+@import "./var.scss";
+
+.explore {
+  height: calc(100vh - 62px);
+  width: 100%;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.explore-list {
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 300px;
+  &-item {
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+  }
+  margin-top: 20px;
+}
+
+.explore-item-right {
+  grid-area: 1 / 1 / span 2 / span 2;
+  background-color: red;
+}
+.explore-item-left {
+  grid-area: 1 / 2 / span 2 / span 3;
+  background-color: red;
+}
