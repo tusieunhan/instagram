@@ -8,26 +8,47 @@
     display: none;
   }
 }
+
+.explore-list-item img:hover ~ .explore-list-item-icon {
+  visibility: visible;
+}
+
 .explore-list {
   width: 100%;
   display: grid;
-  grid-gap: 20px;
-  grid-auto-flow: row dense;
+  grid-gap: 30px;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 300px;
+
   &-item {
     width: 100%;
     height: 100%;
-    background-color: orange;
+    position: relative;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &-icon {
+      position: absolute;
+      visibility: hidden;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: $colorbox;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 999;
+      & p {
+        font-size: 16px;
+      }
+    }
+    &-iconheart,
+    &-iconcmt {
+      align-items: center;
+      text-align: center;
+    }
   }
-  margin-top: 20px;
-}
-
-.explore-item-1 {
-  grid-area: 1 / 1 / span 2 / span 2;
-  background-color: red;
-}
-.explore-item-2 {
-  grid-area: 5 / 2 / span 2 / span 2;
-  background-color: red;
+  margin-top: 30px;
 }

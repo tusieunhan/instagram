@@ -24,7 +24,7 @@
 .flex {
   display: flex;
 }
-.text-center{
+.text-center {
   justify-content: center;
   align-items: center;
 }
@@ -52,7 +52,7 @@
 .gap-20 {
   gap: 20px;
 }
-.colorsub{
+.colorsub {
   color: $colorhover;
 }
 .colorlink {
@@ -86,96 +86,97 @@
   }
 }
 .container {
-  width: $contensize;
+  max-width: $contensize;
   margin: 0 auto;
 }
 
 .w-full {
   width: 100%;
 }
-.home{
+.home {
   &-story {
-  margin: 20px 0;
-  width: calc(100% - 2px);
-  height: 118px;
-  background-color: $colorbox;
-  border: 1px solid $colorborder;
-  &-list {
-    padding: 16px 0;
+    margin: 20px 0;
+    width: calc(100% - 2px);
+    height: 118px;
+    background-color: $colorbox;
+    border: 1px solid $colorborder;
+    &-list {
+      padding: 16px 0;
 
-    &-item {
-      text-align: center;
-      align-items: center;
-      &-img {
-        margin: 0 auto;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-bottom: 5px;
-        & img {
-          padding: 2px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-      }
-      & {
+      &-item {
         text-align: center;
         align-items: center;
+        &-img {
+          margin: 0 auto;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-bottom: 5px;
+          & img {
+            padding: 2px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+        & {
+          text-align: center;
+          align-items: center;
+        }
       }
     }
-  }}
+  }
 }
-.img-md{
+.img-md {
   width: 60px;
   height: 60px;
-  & img{
+  & img {
     width: 56px;
     height: 56px;
   }
 }
-.img-md-sm{
+.img-md-sm {
   width: 50px;
   height: 50px;
-  & img{
+  & img {
     width: 44px;
     height: 44px;
   }
 }
-.img-sm{
+.img-sm {
   width: 36px;
   height: 36px;
-  & img{
+  & img {
     width: 32px;
     height: 32px;
   }
 }
-.img-big{
+.img-big {
   width: 156px;
   height: 154px;
-  & img{
+  & img {
     width: 150px;
     height: 150px;
   }
 }
-.isstory{
+.isstory {
   border: 2px solid #e82b7e;
 }
-.storied{
+.storied {
   border: 2px solid #ccc;
 }
-.w-500{
+.w-500 {
   font-weight: 500;
 }
-.w-600{
+.w-600 {
   font-weight: 600;
 }
-.border{
+.border {
   border: 1px solid $colorborder;
 }
-.border-top{
+.border-top {
   border-top: 1px solid $colorborder;
 }
-.textoneline{
-  text-overflow: ellipsis; 
-  overflow: hidden; 
+.textoneline {
+  text-overflow: ellipsis;
+  overflow: hidden;
   white-space: nowrap;
 }
