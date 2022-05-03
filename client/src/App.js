@@ -14,15 +14,17 @@ import User from "./components/User/User";
 import Story from "./components/Story/Story";
 
 function App() {
-  const user = true;
+
   const box = useSelector((state) => state.box);
   const story = useSelector((state) => state.story.data);
-  // const user = useSelector((state) => state.user.user.username);
+  const isVerify = useSelector((state) => state.user.user.isVerify);
   const url = window.location.pathname;
+  console.log(isVerify)
+
   let navigate = useNavigate();
   useEffect(() => {
     function auth() {
-      if (!user) {
+      if (!isVerify) {
         return navigate("/login");
       } else {
         if (url === "/login") {
@@ -32,7 +34,7 @@ function App() {
       }
     }
     auth();
-  }, [user, url]);
+  }, [isVerify, url]);
   return (
     <div className="App">
       {story !== null && <Story />}
@@ -42,8 +44,8 @@ function App() {
       {box.boxUser && <Dialog />}
       {box.boxPost && <Dialog overlay times zIndex />}
 
-      {user && <Header />}
-      {user ? (
+      {isVerify && <Header />}
+      {isVerify ? (
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />

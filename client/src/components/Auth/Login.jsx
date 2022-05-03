@@ -2,15 +2,18 @@ import React, { memo, useState } from "react";
 import Input from "./Input";
 import OrSpace from "./OrSpace";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../API/authAPI";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({ email: "", password: "" });
   const responseFacebook = async (data) => {
     console.log(data);
   };
-  const handleClickLogin = ()=>{
-    
-  }
+  const handleClickLogin = () => {
+    loginUser(dispatch, user);
+  };
   return (
     <>
       <div className="auth-box-logo">
@@ -30,7 +33,9 @@ const Login = () => {
           placeholder="Password"
           type="password"
         />
-        <div onClick={handleClickLogin} className="btn btn-login">Log In</div>
+        <div onClick={handleClickLogin} className="btn btn-login">
+          Log In
+        </div>
         <OrSpace text="OR" />
         <FacebookLogin
           appId="268395025475638"

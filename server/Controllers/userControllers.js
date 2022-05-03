@@ -69,7 +69,9 @@ const userControllers = {
   },
   login: async (req, res) => {
     try {
-      const user = await User.findOne({ username: req.body.username });
+      let user
+      user = await User.findOne({ username: req.body.username });
+      user = await User.findOne({ email: req.body.email });
       if (!user) {
         res.json("Account not exist !");
       } else {

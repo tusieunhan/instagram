@@ -40,7 +40,8 @@ export const loginUser = async (dispatch, user) => {
   try {
     const response = await axiosClient.post("/user/login", user);
     if (response.data) {
-      dispatch(setUser(response.data))
+      dispatch(setUser(response.data.user))
+      localStorage("user", response.data.user)
     }
     dispatch(setLoading());
   } catch (error) {
