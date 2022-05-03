@@ -246,14 +246,17 @@ const Explore = () => {
               ref={imgRef}
             >
               <img src={item.photo} alt="" />
-              <div className="explore-list-item-icon flex gap-20">
-                <div className="explore-list-item-iconheart flex gap-5">
-                  <i className="fa-solid fa-heart "></i>
-                  <p>29k</p>
-                </div>
-                <div className="explore-list-item-iconcmt flex gap-5">
-                  <i className="fa-solid fa-play"></i>
-                  <p>68</p>
+              <div className="explore-list-item-group"></div>
+              <div className="explore-list-item-group2">
+                <div className="explore-list-item-icon flex gap-20">
+                  <div className="explore-list-item-iconheart flex gap-5">
+                    <i className="fa-solid fa-heart "></i>
+                    <p>29k</p>
+                  </div>
+                  <div className="explore-list-item-iconcmt flex gap-5">
+                    <i className="fa-solid fa-play"></i>
+                    <p>68</p>
+                  </div>
                 </div>
               </div>
             </div>
