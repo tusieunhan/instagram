@@ -23,11 +23,11 @@
   margin-top: 20px;
 }
 
-.explore-item-right {
+.explore-item-1 {
   grid-area: 1 / 1 / span 2 / span 2;
   background-color: red;
 }
-.explore-item-left {
-  grid-area: 1 / 2 / span 2 / span 3;
+.explore-item-2 {
+  grid-area: 5 / 2 / span 2 / span 2;
   background-color: red;
 }

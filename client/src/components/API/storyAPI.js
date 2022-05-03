@@ -21,7 +21,12 @@ export const getStory = async (dispatch, id) => {
           {
             type: "video/mp4",
             content:
-              "https://v16-webapp.tiktok.com/64e0a45a51d2bed088451f523a128c1d/626ffb95/video/tos/useast2a/tos-useast2a-pve-0037-aiso/dd5288582539421389f77981a13621b9/?a=1988&br=4580&bt=2290&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZJNrRwe2NTEUml7Gb&l=202205020940580102452422491E1716AC&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2hrZDQ6ZjQ8OjMzZjgzM0ApaDdmNjgzOTs3Nzk6NzlpN2cvcnFfcjRvamVgLS1kL2Nzc2NhXjUuMy5eNDNjMzE1YmA6Yw%3D%3D&vl=&vr=",
+              "https://v16-webapp.tiktok.com/ebfcca257f749017280f5740775e9d7d/62710ccb/video/tos/useast2a/tos-useast2a-pve-0037-aiso/b9af9f1042c1461e9e256531c69c89eb/?a=1988&br=2992&bt=1496&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZXtRjwe2NU1Wml7Gb&l=202205030506400102452450020FA16628&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2dubjg6ZmZvPDMzZjgzM0ApNWk5OTlpOWRlNzxkNTNkNWdsYXFmcjRvaGtgLS1kL2NzczUzXmMyNWMuYzBhNC5hMjM6Yw%3D%3D&vl=&vr=",
+          },
+          {
+            type: "video/mp4",
+            content:
+              "https://v16-webapp.tiktok.com/8ae460c4a9dd59d6d8e3fe46fdb2aa22/62710db2/video/tos/useast2a/tos-useast2a-pve-0037-aiso/93b349d9fb9c4e6fb52f57657ea16b91/?a=1988&br=2250&bt=1125&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZbORjwe2NpPWml7Gb&l=20220503051018010245004114279B3BB1&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anJkbmk6ZnM6PDMzZjgzM0ApNmY4OWRmOTs5N2Y3ZTo8ZmcwXzFscjRvYzJgLS1kL2Nzcy8wMjMwXi4tNTIwYDUuLS06Yw%3D%3D&vl=&vr=",
           },
           {
             type: "image/jpg",

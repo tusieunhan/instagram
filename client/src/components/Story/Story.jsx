@@ -26,7 +26,7 @@ const Story = () => {
       }
     };
     checkType();
-  }, [type]);
+  }, [type, index]);
 
   const timerAndNext = () => {
     timer = setTimeout(() => {

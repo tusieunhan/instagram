@@ -1,116 +1,114 @@
-.post{
-    &-header{
-        padding: 10px 20px 10px 10px;
-    }
-    &-body{
-        max-height: 765px;
-        min-height: 500px;
-        position: relative;
+.post {
+  &-header {
+    padding: 10px 20px 10px 10px;
+  }
+  &-body {
+    max-height: 765px;
+    min-height: 500px;
+    position: relative;
 
-        overflow: hidden;
-        & video,
-        & img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        &-btn-mute{
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(59, 59, 59, 0.661);
-            bottom: 15px;
-            text-align: center;
-            border-radius: 50%;
-            z-index: 999;
-            right: 15px;
-            & i{
-                padding: 8px;
-                font-size: 14px;
-                color: $colorbox;
-            }
-        }
-        &-photo-btn{
-            position: absolute;
-            z-index: 9999;
-            inset: 0;
-            justify-content: space-between;
-        }
-        &-btn-right,
-        &-btn-left{
-            border-radius: 50%;
-            z-index: 999;
-            margin: 0 10px;
-            & i{
-                padding: 8px;
-                font-size: 24px;
-                color: rgba(255, 255, 255, 0.8);
-            
-            }
-        }
-        &-btn-left{
-            right: 15px;
-        }
-        &-btn-right{
-            right: 15px;
-        }
-
+    overflow: hidden;
+    & video,
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    &-btn{
-        &-group{
-            margin: 15px 20px;
-            & i:hover{
-                color: $colorhover;
-            }
-        }
+    &-btn-mute {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(59, 59, 59, 0.661);
+      bottom: 15px;
+      text-align: center;
+      border-radius: 50%;
+      z-index: 999;
+      right: 15px;
+      & i {
+        padding: 8px;
+        font-size: 14px;
+        color: $colorbox;
+      }
     }
-    &-total{
-        text-align: center;
-        align-items: center;
-        margin: 0 15px;
-        &-user{
-            & img {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            }
-        }
+    &-photo-btn {
+      position: absolute;
+      z-index: 9999;
+      inset: 0;
+      justify-content: space-between;
     }
-    &-subcomment{
-        margin: 10px 15px;
-       &-name span{
-           font-size: 13px;
-       }
-       & span {
-           cursor: pointer;
-       }
-       &-viewall{
-        margin:  0 15px 15px 15px;
-        cursor: pointer;
-       }
+    &-btn-right,
+    &-btn-left {
+      border-radius: 50%;
+      z-index: 999;
+      margin: 0 10px;
+      & i {
+        padding: 8px;
+        font-size: 24px;
+        color: rgba(255, 255, 255, 0.8);
+      }
     }
-    &-input{
-        padding: 15px;
-        align-items: center;
-        &-emoji{
-            position: relative;
-        }
-        &  textarea {
-            font-family: "Poppins";
-            border: none;
-            outline: none;
-            width: 100%;
-            resize: none;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: inherit;
-            &::placeholder {
-              font-family: "Poppins";
-            }
-          }
-          &-btnpost{
-              cursor: pointer;
-          }
+    &-btn-left {
+      right: 15px;
     }
+    &-btn-right {
+      right: 15px;
+    }
+  }
+  &-btn {
+    &-group {
+      margin: 15px 20px;
+      & i:hover {
+        color: $colorhover;
+      }
+    }
+  }
+  &-total {
+    text-align: center;
+    align-items: center;
+    margin: 0 15px;
+    &-user {
+      & img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+      }
+    }
+  }
+  &-subcomment {
+    margin: 10px 15px;
+    &-name span {
+      font-size: 13px;
+    }
+    & span {
+      cursor: pointer;
+    }
+    &-viewall {
+      margin: 0 15px 15px 15px;
+      cursor: pointer;
+    }
+  }
+  &-input {
+    padding: 15px;
+    align-items: center;
+    &-emoji {
+      position: relative;
+    }
+    & textarea {
+      font-family: "Poppins";
+      border: none;
+      outline: none;
+      width: 100%;
+      resize: none;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inherit;
+      &::placeholder {
+        font-family: "Poppins";
+      }
+    }
+    &-btnpost {
+      cursor: pointer;
+    }
+  }
 }
