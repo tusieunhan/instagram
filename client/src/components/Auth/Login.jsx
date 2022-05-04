@@ -4,15 +4,17 @@ import OrSpace from "./OrSpace";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../API/authAPI";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const [user, setUser] = useState({ email: "", password: "" });
   const responseFacebook = async (data) => {
     console.log(data);
   };
   const handleClickLogin = () => {
-    loginUser(dispatch, user);
+    loginUser(navigate, dispatch, user);
   };
   return (
     <>

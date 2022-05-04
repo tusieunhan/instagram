@@ -1,10 +1,10 @@
 import React from "react";
 import AvatarStory from "../../Avatar/AvatarStory";
 
-const PostHeader = ({ username, id, photo }) => {
+const PostHeader = ({ username, id, photo, classheader }) => {
   return (
     <>
-      <div className="post-header   flex-between">
+      <div className={`post-header flex-between border`}>
         <div className="post-user flex text-center gap-10">
           <AvatarStory photo={photo} size="img-sm" story idStory={"ssss"} />
           <p className="w-600">{username}</p>

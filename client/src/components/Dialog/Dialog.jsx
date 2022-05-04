@@ -23,7 +23,6 @@ const Dialog = ({ overlay, times, zIndex }) => {
 
   const countIndex = zIndex ? 3 : 0;
 
-  console.log(countIndex);
   return (
     <div
       style={{ zIndex: `${countIndex}` }}

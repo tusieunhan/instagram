@@ -6,12 +6,14 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 import InputOption from "./InputOption";
 import { registerUser, verifyCode } from "../API/authAPI";
 import { setBirthday, setCode } from "../../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch();
   const userRedux = useSelector((state) => state.user);
-  const { isCode, loading, isBirthday } = userRedux;
+  const { isCode, loading, isBirthday, notiRegister } = userRedux;
   const [codeNumber, setCodeNumber] = useState();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     email: "",
@@ -58,13 +60,15 @@ const Register = () => {
     registerUser(dispatch, user);
   };
   const handleExit = () => {
-    dispatch(setCode());
+    dispatch(setCode({ code: false }));
     dispatch(setBirthday());
   };
   const handleClickVerify = () => {
-    verifyCode(dispatch, { username: user["username"], code: codeNumber });
+    verifyCode(navigate, dispatch, {
+      username: user["username"],
+      code: codeNumber,
+    });
   };
-  console.log(isBirthday);
 
   return (
     <>
@@ -178,6 +182,12 @@ const Register = () => {
               >
                 Go back
               </div>
+              <br />
+              {notiRegister ? (
+                <p className="noti colorred">{notiRegister}</p>
+              ) : (
+                " "
+              )}
             </>
           ) : (
             <>

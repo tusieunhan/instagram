@@ -16,8 +16,9 @@ export const userSlice = createSlice({
     setLoading: (state) => {
       state.loading = !state.loading;
     },
-    setCode: (state) => {
-      state.isCode = !state.isCode;
+    setCode: (state, action) => {
+      state.isCode = action.payload.code;
+      state.notiRegister = action.payload.message;
     },
     setBirthday: (state) => {
       state.isBirthday = !state.isBirthday;
@@ -26,7 +27,6 @@ export const userSlice = createSlice({
     setNotiRegister: (state, action) => {
       state.notiRegister = action.payload;
     },
-
   },
 });
 

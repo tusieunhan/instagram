@@ -6,20 +6,25 @@ import Error from "./components/Error/Error";
 import Header from "./components/Header/Header";
 import "./style/basic.scss";
 import Dialog from "./components/Dialog/Dialog";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Confirm from "./components/Dialog/Confirm";
 import Chat from "./components/Chat/Chat";
 import Explore from "./components/Explore/Explore";
 import User from "./components/User/User";
-import Story from "./components/Story/Story";
+import DialogStory from "./components/Dialog/DialogStory";
+import DialogPost from "./components/Dialog/DialogPost";
+import { setUser } from "./redux/userSlice";
 
 function App() {
-
+  const dispatch = useDispatch();
   const box = useSelector((state) => state.box);
   const story = useSelector((state) => state.story.data);
-  const isVerify = useSelector((state) => state.user.user.isVerify);
+  const post = useSelector((state) => state.post.data);
+  const isVerify = useSelector((state) => state?.user?.user?.isVerify);
+  useEffect(() => {
+    dispatch(setUser(JSON.parse(localStorage?.getItem("user"))));
+  }, [localStorage?.getItem("user")]);
   const url = window.location.pathname;
-  console.log(isVerify)
 
   let navigate = useNavigate();
   useEffect(() => {
@@ -37,7 +42,8 @@ function App() {
   }, [isVerify, url]);
   return (
     <div className="App">
-      {story !== null && <Story />}
+      {story !== null && <DialogStory />}
+      {post !== null && <DialogPost />}
       {box.boxConfirm && <Confirm overlay />}
       {box.boxNoti && <Dialog />}
       {box.boxSearch && <Dialog />}

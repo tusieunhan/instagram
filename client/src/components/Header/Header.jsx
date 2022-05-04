@@ -15,9 +15,12 @@ import DialogUser from "../Dialog/DialogUser";
 import DialogSearch from "../Dialog/DialogSearch";
 const Header = () => {
   const dispatch = useDispatch();
-  const box = useSelector((state) => state.box);
-  const { boxNoti, boxPost, boxSearch, boxUser } = box;
-  const [index, setIndex] = useState(box.indexActive);
+  const boxRedux = useSelector((state) => state.box);
+  const { boxNoti, boxPost, boxSearch, boxUser } = boxRedux;
+  const userRedux = useSelector((state) => state.user.user);
+  const { photo } = userRedux;
+  console.log(userRedux);
+  const [index, setIndex] = useState(boxRedux.indexActive);
   const [textSearch, setTextSearch] = useState("");
   const btnLink = document.querySelectorAll(".header-center-group .link i");
   btnLink.forEach((item, index) => {
@@ -109,10 +112,7 @@ const Header = () => {
           ></i>
           {boxNoti && <DialogNoti />}
           <div className="header-center-img" onClick={handleClickBoxUSer}>
-            <img
-              src="https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/240826453_2975993636023115_4454241435896868815_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_ohc=gCbv6kbpAQUAX_1Mzwz&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT-Tl_Oph2vRw4FcjP-OLNYpp3obPYLa1Ksydb4vtoFT1g&oe=6263F525"
-              alt=""
-            />
+            <img src={photo} alt="" />
             <div className={`imgBorder ${boxUser ? "imgActive" : " "}`}></div>
           </div>
           {boxUser && <DialogUser />}

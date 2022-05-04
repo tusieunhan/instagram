@@ -1,8 +1,8 @@
 import React from "react";
 
-const PostBtn = ({ data }) => {
+const PostBtn = ({ data, border }) => {
   return (
-    <div className="post-btn">
+    <div className={`post-btn ${border ? "border-top" : " "}`}>
       <div className="post-btn-group flex-between ">
         <div className="post-btn-group_2 flex gap-20">
           <i className="fa-regular fa-heart"></i>

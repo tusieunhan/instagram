@@ -8,7 +8,7 @@ const userControllers = {
     try {
       const name = await User.findOne({ username: req.body.username });
       if (name) {
-        res.json({ message: "Accout exits!" });
+        res.json({ message: "Account exits!", code: false });
       } else {
         let code = Math.floor(Math.random() * (9999 - 1000) + 1000);
         const salt = await bcrypt.genSalt(10);
@@ -55,12 +55,12 @@ const userControllers = {
     try {
       const user = await User.findOne({ username: req.body.username });
       if (!user) {
-        res.json({ message: "Accout exits!" });
+        res.json({ message: "Account exits!" });
       } else {
         let { code } = user;
         if ((code = req.body.code)) {
-          const update = await User.updateOne({ isVerify: true });
-          return res.json({ message: " verify successfully" });
+          const newUser = await User.updateOne({ isVerify: true });
+          return res.json({ user, isVerify: true });
         }
       }
     } catch (error) {
@@ -69,27 +69,27 @@ const userControllers = {
   },
   login: async (req, res) => {
     try {
-      let user
+      let user;
       user = await User.findOne({ username: req.body.username });
       user = await User.findOne({ email: req.body.email });
       if (!user) {
-        res.json("Account not exist !");
+        res.json({ message: "Account not exist !", isVerify: true });
       } else {
         const validPass = await bcrypt.compare(
           req.body.password,
           user.password
         );
         if (!validPass) {
-          return res.json("Password faill");
+          return res.json("Password fail");
         }
         if (validPass && user) {
-          const accsess_Token = jwt.sign(
+          const access_Token = jwt.sign(
             {
               username: user.username,
             },
             process.env.SECRET_KEY
           );
-          res.json({ user, accsess_Token });
+          res.json({ user, access_Token: access_Token });
         }
       }
     } catch (error) {

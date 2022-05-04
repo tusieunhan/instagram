@@ -1,0 +1,50 @@
+@import "./var.scss";
+
+.dialog-click {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.381);
+}
+.dialog-full {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  //   background-color: rgba(0, 0, 0, 0.381);
+}
+.dialogpost-container {
+  height: 100%;
+  z-index: 99;
+}
+.dialog-post {
+  z-index: 99999999;
+
+  max-width: 1200px;
+  height: calc(100vh - 40px);
+  overflow: hidden;
+}
+.post-group {
+  height: 100%;
+}
+
+.post-item {
+  height: 100%;
+  &-header {
+    // text-align: center;
+  }
+  &-footer {
+  }
+  &-body {
+    overflow: scroll;
+    height: calc(100vh - 250px);
+  }
+}
+.post-item_1 {
+  max-width: 700px;
+}
+.post-item_2 {
+  max-width: 500px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}

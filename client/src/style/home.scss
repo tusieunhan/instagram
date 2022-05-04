@@ -1,7 +1,6 @@
 @import "./var.scss";
-@import './homePost.scss';
+@import "./homePost.scss";
 .home {
-
   &-posts {
     height: calc(100vh - 62px);
     max-width: 614px;
@@ -99,10 +98,11 @@
       }
     }
   }
-  &-content{
-    &-post{
-    background-color: $colorbox;
+  &-content {
+    &-post {
+      background-color: $colorbox;
       margin-bottom: 30px;
+      height: 100%;
     }
   }
 }

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import PostPhotos from "./PostPhotos";
 
-const PostBody = ({ data, type }) => {
+const PostBody = ({ data, type, classbody }) => {
   const videoRef = useRef();
   const [mute, setMute] = useState(false);
   const handleMuteVideo = () => {
@@ -14,7 +14,7 @@ const PostBody = ({ data, type }) => {
   };
   return (
     <>
-      <div className="post-body">
+      <div className={`post-body ${classbody}`}>
         <div className="post-body-img">
           {type === "image/png" ||
             (type === "image/jpg" && <img src={data} alt="" />)}
