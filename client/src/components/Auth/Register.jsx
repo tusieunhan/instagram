@@ -191,7 +191,7 @@ const Register = () => {
             </>
           ) : (
             <>
-              <i class="fa-thin fa-envelope-circle-check"></i>
+              <i className="fa-thin fa-envelope-circle-check"></i>
               <div className="register-brithday-title">
                 <p>Enter Confirmation Code</p>
               </div>

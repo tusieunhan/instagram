@@ -1,0 +1,89 @@
+@import "./var.scss";
+.chat {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &-content {
+    background-color: $colorbox;
+    height: calc(100% - 30px);
+    display: flex;
+  }
+  &-list {
+    width: 350px;
+    height: 100%;
+    border-right: 1px solid $colorborder;
+    &-header {
+      text-align: center;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0 20px;
+      &-username {
+        width: 80%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-weight: 500;
+        & p {
+          font-size: 15px;
+        }
+        & i {
+          font-size: 20px;
+        }
+      }
+    }
+    &-user {
+      overflow: scroll;
+      height: 100%;
+      &-box {
+        margin-top: 10px;
+      }
+    }
+  }
+  &-box {
+    width: calc(100% - 350px);
+    height: 100%;
+  }
+}
+
+.chat-header {
+  height: 60px;
+}
+.chat-wrapper {
+  height: calc(100% - 60px);
+  border-top: 1px solid $colorborder;
+}
+.user {
+  cursor: pointer;
+  &:hover {
+    background-color: $colormain;
+  }
+}
+.useractive {
+  background-color: $colormain;
+}
+.userchat {
+  align-items: center;
+  margin: 0 20px;
+  height: 72px;
+  text-align: center;
+  align-items: center;
+  margin: 0 20px;
+  &-img {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-info {
+    text-align: left;
+    &-name {
+      line-height: 1.5;
+    }
+  }
+}

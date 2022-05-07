@@ -12,7 +12,7 @@ const Posts = () => {
         "https://static-images.vnncdn.net/files/publish/elon-musk-khang-dinh-vi-the-nguoi-quyen-luc-nhat-the-gioi-1d06f24b50144b528f3471d87545e53b.jpg",
       type: "image/jpg",
       datapost:
-        "https://scontent.fsgn16-1.fna.fbcdn.net/v/t39.30808-6/279179878_1456112181485967_2460896349116617535_n.jpg?stp=dst-jpg_p526x296&_nc_cat=105&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=9kONkkduUCAAX-qVYJS&_nc_ht=scontent.fsgn16-1.fna&oh=00_AT9Cg64t99IjU4X5EaH3N3LIdAlmMESbQ8vllTzhNaEHNQ&oe=62715C8D",
+        "https://dbk.vn/uploads/ckfinder/images/tranh-anh/anh-nen-dien-thoai-6.jpg",
       likecount: 654,
       comments: [
         { username: "obama", comment: "How to make love ?" },
@@ -47,12 +47,12 @@ const Posts = () => {
       id: "1111122222",
       username: "mies_duynh",
       photo:
-        "https://scontent.fsgn16-1.fna.fbcdn.net/v/t39.30808-6/245787435_1171943956668822_4106746346127118337_n.jpg?stp=dst-jpg_s526x395&_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=NZjsnZcFMAYAX_Vcnce&_nc_ht=scontent.fsgn16-1.fna&oh=00_AT-Q4m_EyM7ESY-S2tC-Qd9RTRw11VjyezY4gf_TZIWB4Q&oe=6272F535",
+        "https://image.thanhnien.vn/w660/Uploaded/2022/juzagt/2020_08_18/anh1_jvzj.jpg",
       type: "array",
       datapost: [
-        "https://scontent.fsgn16-1.fna.fbcdn.net/v/t39.30808-6/274580783_714182253076945_7882144008773545103_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=0debeb&_nc_ohc=XjlWRcdHimwAX8sFpnQ&_nc_ht=scontent.fsgn16-1.fna&oh=00_AT8DNuulela20DvJFXQKVqx58HHjHHyBPY23Vfuz8dlUfw&oe=62722926",
-        "https://scontent.fsgn16-1.fna.fbcdn.net/v/t39.30808-6/255967615_649994349495736_2707982143404693298_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=0debeb&_nc_ohc=18vtOGE4FkMAX8lCFDj&_nc_ht=scontent.fsgn16-1.fna&oh=00_AT8XYltdMaMhnB3W1U3jZz7oAEhWpThcUNu_5AGKANbezw&oe=6272FAD3",
-        "https://scontent.fsgn16-1.fna.fbcdn.net/v/t39.30808-6/255445498_649994252829079_7981782898317341957_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=0debeb&_nc_ohc=pyInYIGnieoAX9ozpXl&tn=kscTwOMICBHtsLEL&_nc_ht=scontent.fsgn16-1.fna&oh=00_AT_8k2kGi_jkBjhDUJZbM9z8vBfBYPNOjJi_tdbfbV0L1Q&oe=6271D11A",
+        "https://image.thanhnien.vn/w1024/Uploaded/2022/pwivoviu/2022_01_21/anh-1-9607.jpg",
+        "https://vnn-imgs-f.vgcloud.vn/2020/06/17/18/phong-cach-thoi-trang-da-dang-cua-blackpink-lisa.jpg",
+        "https://dep.com.vn/wp-content/uploads/2022/01/phong-cach-thoi-trang-hoi-huong-vintage-cua-lisa-1.jpg",
       ],
       likecount: 999,
       comments: [
