@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
-    photos: {
-        type: [],
-    },
+  data: {
+    type: [],
+  },
+  type: {
+    type: String,
+    default: "image/jpg",
+  },
 });
 
 let Post = mongoose.model("Post", postSchema);
