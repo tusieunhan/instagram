@@ -51,7 +51,7 @@ const Posts = () => {
       type: "array",
       datapost: [
         "https://image.thanhnien.vn/w1024/Uploaded/2022/pwivoviu/2022_01_21/anh-1-9607.jpg",
-        "https://vnn-imgs-f.vgcloud.vn/2020/06/17/18/phong-cach-thoi-trang-da-dang-cua-blackpink-lisa.jpg",
+        "https://scontent.fsgn5-5.fna.fbcdn.net/v/t45.1600-4/279376772_23849954464870604_949215688303235154_n.png?stp=cp0_dst-jpg_p526x296_q90_spS444&_nc_cat=100&ccb=1-6&_nc_sid=68ce8d&_nc_ohc=HGhVJhDgsxQAX8QpBuS&_nc_ht=scontent.fsgn5-5.fna&oh=00_AT-OKfQbsx32IUOPWl8gJYvBQnsfTJYze9ZM52PYsocxNA&oe=627D760B",
         "https://dep.com.vn/wp-content/uploads/2022/01/phong-cach-thoi-trang-hoi-huong-vintage-cua-lisa-1.jpg",
       ],
       likecount: 999,

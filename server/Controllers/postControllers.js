@@ -5,13 +5,14 @@ const postControllers = {
   upload: async (req, res) => {
     try {
       const files = req.files;
-      //   console.log(files);
+      // console.log(files);
       const uploadfile = async (files) => {
         const urls = [];
         for (const file of files) {
-          const { path } = file;
-          console.log(path);
-          const newPath = await cloudinary.uploader.upload(path);
+          const { path, mimetype } = file;
+          const newPath = await cloudinary.uploader.upload(path, {
+            resource_type: mimetype.split("/")[0]
+          });
           console.log(newPath);
           let { url, public_id, resource_type } = newPath;
           urls.push({ url, public_id, resource_type });
