@@ -11,7 +11,8 @@ export const registerUser = async (dispatch, user) => {
   try {
     const response = await axiosClient.post("/user/register", user);
     if (response.data) {
-      dispatch(setCode(response.data));
+      console.log(response.data);
+      dispatch(setCode(response.data.code));
     }
     dispatch(setLoading());
   } catch (error) {

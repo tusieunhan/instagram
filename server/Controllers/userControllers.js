@@ -22,6 +22,7 @@ const userControllers = {
         const { email } = user;
         res.json({
           message: `Please check mail to verify your account ${email}`,
+          code: true,
         });
 
         const transporter = nodemailer.createTransport({
@@ -59,8 +60,15 @@ const userControllers = {
       } else {
         let { code } = user;
         if ((code = req.body.code)) {
-          const newUser = await User.updateOne({ isVerify: true });
-          return res.json({ user, isVerify: true });
+          const newUser = await User.updateOne(
+            { username: req.body.username },
+            { isVerify: true },
+            { new: true }
+          );
+          if (newUser.acknowledged) {
+            const user = await User.findOne({ username: req.body.username });
+            return res.json({ user });
+          }
         }
       }
     } catch (error) {
@@ -70,8 +78,10 @@ const userControllers = {
   login: async (req, res) => {
     try {
       let user;
-      user = await User.findOne({ username: req.body.username });
-      user = await User.findOne({ email: req.body.email });
+      user = await User.findOne({
+        $or: [{ email: req.body.email }, { username: req.body.email }],
+      });
+      // user = await User.findOne({ email: req.body.email });
       if (!user) {
         res.json({ message: "Account not exist !", isVerify: true });
       } else {
@@ -94,6 +104,14 @@ const userControllers = {
       }
     } catch (error) {
       res.status(500).json("Can not login account");
+    }
+  },
+  users: async (req, res) => {
+    try {
+      let user = await User.find();
+      res.json(user);
+    } catch (error) {
+      res.status(500).json("not account");
     }
   },
 };
