@@ -5,7 +5,6 @@ const postControllers = {
   upload: async (req, res) => {
     try {
       const files = req.files;
-      // console.log(files);
       const uploadfile = async (files) => {
         const urls = [];
         for (const file of files) {
@@ -21,7 +20,7 @@ const postControllers = {
       };
       const photo = await uploadfile(files);
 
-      console.log(photo);
+      console(photo)
       res.json("posttt");
     } catch (error) {
       res.status(500).json("Can not login account");
