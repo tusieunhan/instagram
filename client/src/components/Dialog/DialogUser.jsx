@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { unAllBox } from "../../redux/boxSlice";
 const DialogUser = () => {
   const dispatch = useDispatch();
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.reload();
+  };
   return (
     <div className="dialog-user triangle">
       <div className="dialog-user-list">
@@ -41,8 +45,8 @@ const DialogUser = () => {
           <p>Switch Accounts</p>
         </Link>
         <Link
-          onClick={() => dispatch(unAllBox())}
-          to="/vantusieunhan"
+          onClick={handleLogout}
+          to=""
           className="dialog-user-item  flex gap-10"
         >
           <p>Log Out</p>

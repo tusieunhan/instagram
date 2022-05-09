@@ -16,17 +16,17 @@ export const getStory = async (dispatch, id) => {
           {
             type: "image/jpg",
             content:
-              "https://file.tinnhac.com/resize/600x-/2019/08/26/20190826103657-4954.jpg",
+              "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/279888821_144317854792040_313493866433414617_n.jpg?_nc_cat=103&ccb=1-6&_nc_sid=5cd70e&_nc_ohc=uglbrzn-rjMAX-RGGSB&tn=ihAGq0D3n_nTK1tj&_nc_ht=scontent.fhan4-3.fna&oh=00_AT_8DQTzAUgNfHqorVnVURI8IA1Mfk9u7RsYaUy8DmS-XQ&oe=627E9FF5",
           },
           {
             type: "video/mp4",
             content:
-              "https://v16-webapp.tiktok.com/ce26fbfb8f562e49861ddaa84b544e0e/627428fb/video/tos/useast2a/tos-useast2a-pve-0037-aiso/ba2084ad973548b2861cbb41ee26787b/?a=1988&br=2756&bt=1378&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZfDWjwe2N4hhml7Gb&l=202205051343370102440690741A34517E&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2l1OTw6ZnFrPDMzZjgzM0ApZjRpOWU3Ojw5Nzk1MzZnOmdzbW1gcjQwYmhgLS1kL2Nzc2I2Y2I1LzY1YWJgLzQwNWA6Yw%3D%3D&vl=&vr=",
+              "https://v16-webapp.tiktok.com/f64fed3ac4dbe9bebe9fa7a2ffe2efc1/6279448c/video/tos/useast2a/tos-useast2a-pve-0037-aiso/c5c270d1df764528aa4629fcfcab894c/?a=1988&br=4576&bt=2288&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZovgCwe2N8RBml7Gb&l=20220509104221010244082046043A47B8&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3Q5Mzs6Zjd2PDMzZjgzM0ApMzRpaTY7NWQ3NzM1NjYzNWdicnIvcjQwc2VgLS1kL2Nzc2M0YmFiNi9jMC02YzRhYF86Yw%3D%3D&vl=&vr=",
           },
           {
             type: "video/mp4",
             content:
-              "https://v16-webapp.tiktok.com/771d1a31f6f53db7005021689771fc10/62742905/video/tos/useast2a/tos-useast2a-pve-0037-aiso/fa5a9cde55bd4a9497f0c00fc2febe85/?a=1988&br=2858&bt=1429&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZfDWjwe2N4hhml7Gb&l=202205051343370102440690741A34517E&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U4NGQ6ZnRyPDMzZjgzM0ApZmU8Z2U7N2Q3Nzw1NTpmPGdqXmxncjRvZmNgLS1kL2Nzc140Yl9hYDMuL2BfLWIzLzA6Yw%3D%3D&vl=&vr=",
+              "https://v16-webapp.tiktok.com/1c7cf792951476a70fb65333c8485d74/62794480/video/tos/useast2a/tos-useast2a-pve-0037-aiso/4a5500f61f8d4dc680b7164bc7213a49/?a=1988&br=2958&bt=1479&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZovgCwe2N8RBml7Gb&l=20220509104221010244082046043A47B8&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2k2aDs6ZnhqPDMzZjgzM0ApOTY3ZGQ5Zjs6N2k6NmY2PGdvZ3NqcjRnLmxgLS1kL2Nzc2JjYDEyYzMxXjMuLWA0LTU6Yw%3D%3D&vl=&vr=",
           },
           {
             type: "image/jpg",
@@ -36,7 +36,7 @@ export const getStory = async (dispatch, id) => {
           {
             type: "video/mp4",
             content:
-              "https://f7-zvc.zdn.vn/72a6e3e142f2aaacf3e3/9006735269060389837",
+              "https://v16-webapp.tiktok.com/8f1c14e0065c7ba3c173f62cd81f16ac/627945a2/video/tos/useast2a/tos-useast2a-pve-0037-aiso/26645056ee7349e1b73adab533a06f11/?a=1988&br=1710&bt=855&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZXsgCwe2N8RBml7Gb&l=20220509104656010245043153013B2171&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2k6ZDY6Zmd3PDMzZjgzM0ApN2lkNjYzNztpNzY2Z2lnNmdoZDI0cjRvNTRgLS1kL2NzczA2MzEyMTQ0LzE1XmM2LzE6Yw%3D%3D&vl=&vr=",
           },
         ],
         userView: ["111", "222", "333", "444"],

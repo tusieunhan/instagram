@@ -1,4 +1,3 @@
-
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -6,8 +5,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const userRoute = require("./Router/userRoute");
 const postRoute = require("./Router/postRoute");
-
-
 
 dotenv.config();
 const PORT = 2222;
@@ -41,3 +38,5 @@ mongoose
 
 app.use("/user", userRoute);
 app.use("/post", postRoute);
+
+module.exports = app;
