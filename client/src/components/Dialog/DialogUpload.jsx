@@ -27,8 +27,8 @@ const DialogUpload = () => {
     );
     let url = file.target.files;
     if (url.length === 1) {
-      setTypeFile(url[0].type)
-      console.log(url[0].type)
+      setTypeFile(url[0].type);
+      console.log(url[0].type);
       let avt = URL.createObjectURL(url[0]);
       dispatch(setAvatar(avt));
       setCurrentAvatar(avt);
@@ -86,7 +86,7 @@ const DialogUpload = () => {
   };
 
   return (
-    <>
+    <div className="upload-center">
       <div className="dialog-upload">
         <div className="dialog-upload-header flex-between border-bottom">
           {avatar ? (
@@ -166,14 +166,18 @@ const DialogUpload = () => {
               )}
 
               <div className="dialog-upload-preview-img">
-                {typeFile === "video/mp4" ?  <video autoPlay muted src={currentAvatar}></video>: <img src={currentAvatar} alt="" />  }
+                {typeFile === "video/mp4" ? (
+                  <video autoPlay muted src={currentAvatar}></video>
+                ) : (
+                  <img src={currentAvatar} alt="" />
+                )}
               </div>
             </div>
           )}
           {next && <DialogUploadEdit />}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

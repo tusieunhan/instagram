@@ -63,7 +63,7 @@ const Posts = () => {
         },
       ],
       content:
-        "Nên cứ vui lên em vì ngày mai lại một cơ hội để ôm trọn thế giới....",
+        "Nên cứ vui lên em vì ngày mai lại một cơ hội để ôm trọn thế ....",
     },
   ];
   return (
